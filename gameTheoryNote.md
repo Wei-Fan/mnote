@@ -18,3 +18,10 @@ $$u_i(s_i, s_{-i})\geq u_i(s'_i,s_{-i}),\forall i,\forall s'\in S\& s'\neq s $$
 5. A distribution is a correlated equilibrium if:
 $$\sum_{s_{-i}}p(s_i,s_{-i})u_i(s_i, s_{-i})\geq \sum_{s_{-i}}p(s_i,s_{-i})u_i(s'_i,s_{-i}),\\\forall i,\forall s_i,s'_i\in S $$
 6. Proving a Nash equilibrium exists: linear programming duality.
+7. Best response:
+- *improving response for player i*: strategy vector s and gain value/utility for player i $u_i(s)$. Player i change his strategy $s_i$ to $s'_i$ and $u_i(s'_i,s_{-i})>u_i(s)$.
+- *best response for player i*: $s'_i=\arg\max_{s'_i\in S_i} u_i(s'_i,s_{-i})$
+8. Strong Nash Equilibrium:
+- *joint deviation*: a strategy vector s and a subset A of players has a *joint deviation* if there are alternate strategies $s'_i\in S_i$ for $i\in A$ forming a vector $s'_A$ s.t. $$\forall i\in A, u_i(s)\leq u_i(s'_A,s_{-A})$$
+- A strategy vector s is strong Nash if no subset A has a joint deviation.
+9. 
