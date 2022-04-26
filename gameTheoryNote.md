@@ -1,3 +1,20 @@
+source: *A course in Game Theory* https://arielrubinstein.tau.ac.il/books/GT.pdf
+# Introduction
+
+## Concepts
+1. Games: a description of strategic interaction that includes the constraints on the actins that the players can take and the players' interests.
+    - noncooperative game: the sets of possible actions of **individual** players are primitives.
+    - cooperative game: the sets of possible joint actions of **groups** of players are primitives.
+    - strategic game: each player chooses his plan of action once and for all, and all players' decisions are made simultaneously.
+    - extensive game: an extensive game speciies the possible orders of events, and each player can consider his plan of action whenever he has to make a decision.
+    - game with perfect information: each player are fully informed aboyt eaach others' moves.
+2. Solution: a systematic description of the outcomes that may emerge in in a family of games.
+
+
+
+
+
+
 source: *Algorithm Game Theory* https://www.cs.cmu.edu/~sandholm/cs15-892F13/algorithmic-game-theory.pdf
 # Introduction
 
