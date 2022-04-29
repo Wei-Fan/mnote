@@ -53,19 +53,41 @@ source: *A course in Game Theory* https://arielrubinstein.tau.ac.il/books/GT.pdf
 
 
 3. Existence of a Nash Equilibrium
-- *Kakutani's fixed point theorem*: Let X be a compact convex subset of $\mathbb{R}^n$ adn let $f:X\rightarrow X$ be a set-valued fnction for which
+- *Kakutani's fixed point theorem*: Let X be a compact convex subset of $\mathbb{R}^n$ and let $f:X\rightarrow X$ be a set-valued fnction for which
     - $\forall x\in X$ the set $f(x)$ is nonempty and convex
     - the graph of f is closed i.e. $\forall \{x_n\}\text{ and }\{y_n\}\ s.t.\ y_n\in f(x_n),\forall n,\ x_n\rightarrow x, \text{ and } y_n\rightarrow y,\ \text{then we have }y\in f(x)$
 
     then $\exist x^*\in X\ s.t.\ x^*\in f(x^*)$
 
-    ***Q***: why convex? A: the player can only select one action?
-
-- Proposition: he strategic game $<N,(A_i),(\succsim_i)>$ has a nash equilibrium if for all $i\in N$:
+- Proposition: the strategic game $<N,(A_i),(\succsim_i)>$ has a nash equilibrium if for all $i\in N$:
     - the set $A_i$ is a nonempty compact convex subset of a Euclidian space
     - the preference relation $\succsim_i$ is
         - continuous
-        - quasi-concave on A_i
+        - quasi-concave on $A_i$
+
+    - ***Q***: A gamein which some player has finitely many actions violates the condition that the set of actions of every player be convex. Why?
+
+4. Strictly Competitive Games
+    - note: only in limited classes of games can we say something about the quiliative character of the equilibria. One of such games is the **strictly competitive game** or **zerosum**: two players are diametrically oppposed.
+    - definition: A strategic game $<\{1,2\},(A_i),(\succsim_i)>$ is **strictly competitive** if $\forall a\in A\text{ and } b\in A$ we have $a\succsim_1 b\iff b\succsim_2 a$
+    - **maxminmizer for player 1**: The action $x^*\in A_1$ is a maxminimizer for player 1 if
+        $$\min_{y\in A_2}u_1(x^*,y)\geq\min_{y\in A_2}u_1(x,y), \forall x\in A_1$$
+        or $$x^*=\arg_x\max_{x\in A_1}\min_{y\in A_2}u_1(x,y)$$
+    - **Lemma** strictly competitive strategic game $<\{1,2\},(A_i),(u_i)>$. Then we have,
+        $$\max_{y\in A_2}\min_{x\in A_1}u_2(x,y)=-\min_{y\in A_2}\max_{x\in A_1}u_1(x,y)$$
+        Further $y\in A_2$ solves the problem $\max_{y\in A_2}\min_{x\in A_1}u_2(x,y)$ if and only if it solves $\min_{y\in A_2}\max_{x\in A_1}u_1(x,y)$.
+        - *Proof*. known: (1) strictly competitive strategic game: $u_2=-u_1$; (2) math: $\min_z(-f(z))=-\max_z f(z)$
+            $$\therefore\max_{y\in A_2}\min_{x\in A_1}u_2(x,y)=\max_{y\in A_2}\min_{x\in A_1}(-u_1(x,y))=\max_{y\in A_2}[-\max_{x\in A_1}u_1(x,y)]=-\min_{y\in A_2}\max_{x\in A_1}u_1(x,y)$$
+    - **Proposition** $G=<\{1,2\},(A_i),(u_i)>$ is a strictly competitive strategic game. We have,
+        - a. $(x^*,y^*)$ is a Nash equilibrium of G
+        - b. $x^*$ is a maxminimizer for player 1 and $y^*$ is maxminimizer for player 2.
+        - c. $\max_x\min_y u_1(x,y)=\min_y\max_x u_1(x,y)=u_1(x^*,y^*)$, and thus all Nash equilibria of G yield the same payoffs.
+        - $a\Rightarrow b$
+        - $a\Rightarrow c$
+        - $c+b\Rightarrow a$
+        - note: this proposition can be used to find the Nash equilibria of strictly competitive strategic games.
+
+5. Bayesian Games: Strategic Games with Imperfect Information
 
 
 
