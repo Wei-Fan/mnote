@@ -53,19 +53,19 @@ source: *A course in Game Theory* https://arielrubinstein.tau.ac.il/books/GT.pdf
 
 
 3. Existence of a Nash Equilibrium
-- *Kakutani's fixed point theorem*: Let X be a compact convex subset of $\mathbb{R}^n$ and let $f:X\rightarrow X$ be a set-valued fnction for which
-    - $\forall x\in X$ the set $f(x)$ is nonempty and convex
-    - the graph of f is closed i.e. $\forall \{x_n\}\text{ and }\{y_n\}\ s.t.\ y_n\in f(x_n),\forall n,\ x_n\rightarrow x, \text{ and } y_n\rightarrow y,\ \text{then we have }y\in f(x)$
+    - *Kakutani's fixed point theorem*: Let X be a compact convex subset of $\mathbb{R}^n$ and let $f:X\rightarrow X$ be a set-valued fnction for which
+        - $\forall x\in X$ the set $f(x)$ is nonempty and convex
+        - the graph of f is closed i.e. $\forall \{x_n\}\text{ and }\{y_n\}\ s.t.\ y_n\in f(x_n),\forall n,\ x_n\rightarrow x, \text{ and } y_n\rightarrow y,\ \text{then we have }y\in f(x)$
 
-    then $\exist x^*\in X\ s.t.\ x^*\in f(x^*)$
+        then $\exist x^*\in X\ s.t.\ x^*\in f(x^*)$
 
-- Proposition: the strategic game $<N,(A_i),(\succsim_i)>$ has a nash equilibrium if for all $i\in N$:
-    - the set $A_i$ is a nonempty compact convex subset of a Euclidian space
-    - the preference relation $\succsim_i$ is
-        - continuous
-        - quasi-concave on $A_i$
+    - Proposition: the strategic game $<N,(A_i),(\succsim_i)>$ has a nash equilibrium if for all $i\in N$:
+        - the set $A_i$ is a nonempty compact convex subset of a Euclidian space
+        - the preference relation $\succsim_i$ is
+            - continuous
+            - quasi-concave on $A_i$
 
-    - ***Q***: A gamein which some player has finitely many actions violates the condition that the set of actions of every player be convex. Why?
+        - ***Q***: A gamein which some player has finitely many actions violates the condition that the set of actions of every player be convex. Why?
 
 4. Strictly Competitive Games
     - note: only in limited classes of games can we say something about the quiliative character of the equilibria. One of such games is the **strictly competitive game** or **zerosum**: two players are diametrically oppposed.
@@ -87,7 +87,34 @@ source: *A course in Game Theory* https://arielrubinstein.tau.ac.il/books/GT.pdf
         - $c+b\Rightarrow a$
         - note: this proposition can be used to find the Nash equilibria of strictly competitive strategic games.
 
-5. Bayesian Games: Strategic Games with Imperfect Information
+5. Bayesian Games: Strategic Games with Imperfect Information. Some of the parties(player) are not certain of the characteristics of some of the other parties(player)
+    - $\Omega$: a set of possible "states of nature".
+    - $p_i$: *prior belief* of player $i$. A probalility measure on $\Omega$.
+    - $\omega\in\Omega$: the true state of nature of a game.
+    - $\tau_i(\omega)$: the signal function. Return a signal observed by player $i$.
+    - $\Tau_i$: all possible values of $\tau_i$.
+    - $\tau_i^{-1}(t_i)$: when player $i$ receives the signal $t_i\in\Tau_i$, he believes the state is in the set $\tau_i^{-1}(t_i)$.
+    - $$\textit{posterior belief}=\begin{cases}\frac{p_i(\omega)}{p_i(\tau_i^{-1}(t_i))},& \omega\in\tau_i^{-1}(t_i)\\
+                                    0,& \text{otherwise}\end{cases}$$
+    - note: (1) if $\tau_i(\omega)=\omega,\forall \omega\in\Omega$, then the player $i$ has full information about the state of nature.
+    - **Definition**: a Bayesian game consists of
+        - $N$: the set of players
+        - $\Omega$: the set of states
+        - $A_i$: the set of actiosn available to player $i$
+        - $\Tau_i$: the set of signals observed by player $i$ and a function $\tau_i:\Omega\rightarrow \Tau_i$
+        - $p_i$: a probability measure on $\Omega$ (the pror belief of player $i$)
+        - $\succsim_i$: a preference relation on the set of probablity measures over $A\times\Omega,A=\times_{j\in N}A_j$
+    - **Nash equilibrium of a Bayesian game** $<N, \Omega, (A_i), (\Tau_i), (\tau_i), (p_i), (\succsim_i)>$
+        - A player is denoted as $(i,t_i)$
+        - (1) The preference ordering $\succsim^*_{(i,t_i)}$ of each player $(i,t_i)$ is defined by
+            $$a^*\succsim^*_{(i,t_i)}b^*\iff L_i(a^*,t_i)\succsim_i L_i(b^*,t_i)$$
+            where $L_i(A^*,t_i)$ is the lottery over $A\times\Omega$ that assigns probability $\frac{p_i(\omega)}{p_i(\tau_i^{-1}(t_i))}$ to $([a^*(j,\tau_j(\omega))]_{j\in N},\omega)$ if $\omega\in\tau_i^{-1}(t_i)$, zero otherwise.
+
+## Mixed, Correlated, and Evolutionary Equilibrium
+
+1. The mixed extension of the strategic game $<N, (A_i), (u_i)>$ is the strategic game $<N, (\Delta(A_i)), (U_i)>$.
+    - $\Delta(A_i)$: the set of probability distributions over $A_i$
+    - $U_i:\times_{j\in N}\Delta(A_j)\rightarrow\mathbb{R}$:
 
 
 
