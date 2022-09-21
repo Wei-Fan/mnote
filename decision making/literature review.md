@@ -98,5 +98,35 @@
 - The interactions between the dgo vehicle and other vehicles are represented by the dynamic potential field (DPF) and plan the trajectories using constrained Delaunay triangulation (CDT)
 
 
-### Mutlipolicy decision-making for autonomous driving via changepoint-based behavior prediction: Theory and experiment
+### [!] Mutlipolicy decision-making for autonomous driving via changepoint-based behavior prediction: Theory and experiment
 --------------
+- Model behaviors for both ego vehicle and other vehicles as a discrete set of closed-loop policies. Bayesian changepoint detection to find out policies executed by other vehicles $\rightarrow$ obtain high-likelhhod actions from policies and predict the trajectories by closed-loop forward simulation.
+
+### [!] Analysis and Modeling of Lane-changing Game Strategy for Autonomous Driving Vehicles
+--------------
+- Lane-changing
+- Game Theory
+
+### [!] Intention Prediction and Mixed Strategy Nash Equlibrium-Based Decision-Making Framework for Autonomous Driving in Uncontrolled Intersection
+--------------
+- Intersection
+- Mixed Strategy nash Equilibrium theory
+1. Three-stage method:
+    1. Other vehicle motion motion prediction
+        - Predict driving intention (left turn, right turn, or go straight) by using GMM-HMM and SVM
+        - Predict trajectories of other vehicle using Bezier curve
+    2. Driving mode decision
+        - Estimate spatio-temporal conflict point of ego vehicle and other vehicles using S-T diagram
+        - Decide the driving mode (yield or cross) by using Mixed Strategy Nash Equilibrium theory
+    3. Motion planning
+        - Use MPC to generate motion trajectory of ego vehicle based on decision result (the optimal acceleration stratey)
+
+
+### [!] Potential Game Based Decision-Making Frameworks for Autonomous Driving
+--------------
+- Intersection and lane-changing
+- Game Theory
+
+### [!] A Study on Human-like Driving Decision-Making Mechanism in Autonomous Vehicle Undre Various Road Scenarios
+--------------
+- Survey
