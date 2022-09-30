@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/mnote/cmake/play_cmake/TutorialConfig.h.in
+
+/home/ubuntu/mnote/cmake/play_cmake/tutorial.cxx
+cmath
+-
+cstdlib
+-
+iostream
+-
+string
+-
+TutorialConfig.h.in
+/home/ubuntu/mnote/cmake/play_cmake/TutorialConfig.h.in
+

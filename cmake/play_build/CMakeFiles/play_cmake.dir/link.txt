@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/play_cmake.dir/tutorial.cxx.o  -o play_cmake 
