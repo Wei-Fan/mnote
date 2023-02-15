@@ -33,7 +33,7 @@ source: *A course in Game Theory* https://arielrubinstein.tau.ac.il/books/GT.pdf
     $u_i:A\rightarrow \mathbb{R}$ ($\forall a\succsim _i b, u_i(a)\geq u_i(b)$).
     - note: the game is *finite* if the set $A_i$ of every player is finite
 
-2. Nash Equilibrium: a profile $a^*\in A$ of actions with the roperty that
+2. Nash Equilibrium: a profile $a^*\in A$ of actions with the property that
     $$(a^*_{-i},a^*_i)\succsim_i(a^*_{-i},a_i),\forall a_i\in A_i,\forall i\in N $$
     - **Best-response function** $B_i(a_{-i})$ is the set of player $i$'s best actions given $a_{-i}$: $B_i(a_{-i})=\{a_i\in A_i:(a_{-i},a_i)\succsim_i(a_{-i},a'_i),\forall a'_i\in A_i\}$
     - Alternative statement: a Nash equilibrium is a profile $a^*$ of actions for which
