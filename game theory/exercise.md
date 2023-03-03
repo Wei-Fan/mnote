@@ -29,3 +29,7 @@ second price auction game:
 - There is a N.E.: player i bids larger than $v_1$. all other players bid less than $v_i$. The payoff of player i is positive, so player i doesn't want to change. If other players want to win, the payoff wil be negative, so they will not change either.
 - note: *why can't player i bid $v_2$ as the first price aution?*
     - because player i will lose to some other player who bids $b_i\in(v_2,v_1)$, even though that player will have negative payoff. When we consider the best response, we need to consider all situations and not only N.E.
+
+### 18.5
+War of Attrition
+- 
