@@ -32,4 +32,25 @@ second price auction game:
 
 ### 18.5
 War of Attrition
-- 
+- action/strategy: concession time $t_i>0$.
+- payoff:
+    - assume player 1 concedes at $t_1$ and player 2 concedes at $t_2$
+    - in the view of player 1, $t_2\in[0,\infty)$. There is a boundary condition: $t_2=0$. Consider the payoff in two conditions:
+    $$f(t_1)=\begin{cases}\begin{cases}\frac{v_1}{2},t_1=0\\v_1,t_1>0\end{cases},t_2=0\\\begin{cases}0,t_1=0\\ v_1-t_2,t_1>t_2\\ \frac{v_1}{2}-t_2,t_1=t_2 \\-t_1,t_1<t_2\end{cases},t_2>0\end{cases}$$
+- Let's consider N.E. Assume $t^*=(t_1^*,t_2^*)$. If they are all nonzero. The loser's payoff would be negative, so the best response is to concede when game starts. Therefore, at least one player concedes when $t=0$.
+- Now, let's show that N.E. exist. Assume $v_1>v_2$. Consider three cases:
+    - $t<v_2$. (0,t) and (t,0) are not N.E. because the loser can win by conceding at $v_2$ and raise his payoff from 0 to $v_2-t$
+    - $v_2<t<v_1$. only (t,0) is N.E.
+    - $v_1<t$. (t,0) and (0,t) are N.E.
+
+- note: the N.E. means no regrets: the game is settled at a situation and no player is regret for the possibility of better result. Do NOT CONSIDER HOW THE SITUATION IS ACHIEVED.
+
+### 19.1
+A location game
+- This is an area division problem. Consider an area $A=\int_0^1f(x)dx$.
+- Assume all candidate: $0\leq x_1\leq\cdots\leq x_n\leq 1$.
+- For n=2, there exists $x_{\frac{1}{2}}$ which divide the area into two equally. Then, the N.E. is $x^*=(x_{\frac{1}{2}},x_{\frac{1}{2}})$.
+- For n>2, $x^*=(x_{\frac{1}{2}},x_{\frac{1}{2}},x_{\frac{1}{2}})$ would not be N.E. because $x=(x_{\frac{1}{2}},x_{\frac{1}{2}},x_{\frac{1}{2}}+\epsilon)$ will give candidate 3 votes of $\frac{1}{2}A$ which is larger than $\frac{1}{4}A$ that condidate 1 and 2 get.
+
+### 20.2
+Kakutani’s fixed point theorem
