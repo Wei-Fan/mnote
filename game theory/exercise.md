@@ -54,3 +54,29 @@ A location game
 
 ### 20.2
 Kakutani’s fixed point theorem
+- proof:
+    - if $\forall x\in X, x\not\in X$, then consider this: we can always find $x_1,x_2\in X$, and $y_1=f(x_1)< x_1, y_2=f(x_2)> x_2$.
+    - Then, let's find a $\alpha,\beta\in \mathbb{R}$, such that
+    $$\begin{cases}\alpha x_1+\beta x_2=a\\ \alpha y_1+\beta y_2=a\end{cases}\Rightarrow\alpha=\frac{y_2-x_2}{x_1-y_1}\beta$$
+    - Let $\alpha = (y_2-x_2)\delta, \beta=(x_1-y_1)\delta$ and $\delta = \frac{1}{y_2-x_2+x_1-y_1}$. Therefore, $\alpha,\beta\in(0,1)$.
+    - Since f is a convex function. Hence, $$x_0=\alpha x_1+\beta x_2\in X\\
+    \Rightarrow f(x_0) = \alpha f(x_1)+\beta f(x_2)=x_0$$.
+    - Therefore, assumption not stands.
+
+- note: Define $B:A\rightarrow A$ by $B(a)=\times_{i\in N}B_i(a_{-i})$ where $B_i$ is the best response function of player $i$. if B is nonempty, convex and closed, then there will be a fix point for B, which means the profile $a=B(a)$ is the N.E. To ensure that, the preference relation:
+$$\succsim_i \texttt{ is (1)continuous, (2)quasi-concave on }A_i$$
+
+
+### 24.1
+Strictly competitive game
+- a. If there is a N.E, the payoff is $\max_1\min_2 u_1'(a_1,a_2)\geq\max_1\min_2 u_1(a_1,a_2)$
+- b. $\max_{a_1\in A_1'}\leq\max_{a_1\in A}$
+- c. (a) In some strategic games, increasing 1’s payoff in certain situations might decrease his payoff in equilibrium. (b) In some strategic games, restricting 1’s play, might increase his payoff.
+
+### 27.2
+Bach or Stravinsky
+- The set N of players is {1,2}
+- The set $\Omega$ of states is {[B,B], [B,S], [S,B],[S,S]}
+- The set $A_i$ of actions of each player $i$ is $\{B,S\}$
+- The set $T_i$ of signals that i can receive is $[X,Y],X,Y\in\{B,S\}$
+- The signal function: $\tau_1(XY)=X,\tau_2(XY)=Y$.
