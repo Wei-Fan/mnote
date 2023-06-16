@@ -63,7 +63,7 @@ note: two braid with the same invariants are not neccessary equavalent.
 $$exp(\beta)=exp(\sigma_{i_1}^{\epsilon_1}\cdots\sigma_{i_k}^{\epsilon_k}):=\epsilon_1+\cdots+\epsilon_k$$
 5. $exp(\delta(\beta))$ is a braid invariant.
 6. pure braid: each braid string $d_i$ starts at $A_i$ and ends at $B_i$, denoted by $\mathbf{P}_n:=\{\beta\in\mathbf{B}_n|\pi(\beta)=(1)\}=Ker(\pi)$
-7. the pure braid group has a presentation with 
+7. the pure braid group has a presentation with
     * generators: $A_{j,k}=\sigma_{k-1}\sigma_{k-2}\cdots\sigma_{j+1}\sigma_j^2\sigma_{j+1}\sigma_{k-2}\sigma_{k-1}$, $1\leq j<k\leq n$
     * relators:
         * $[A_{r,s}A_{i,j}]=1$, $1\leq r<s<i<j\leq n$ or $1\leq r<i<j<s\leq n$
@@ -71,5 +71,22 @@ $$exp(\beta)=exp(\sigma_{i_1}^{\epsilon_1}\cdots\sigma_{i_k}^{\epsilon_k}):=\eps
         * $A_{r,s}A_{s,j}A^{−1}_{r,s} = A^{−1}_{s,j}A^{−1}_{r,j}A_{s,j}A_{r,j}A_{s,j}$ if $1 \leq r < s < j \leq n$
         * $[A^{−1}_{i,j}A_{s,j}A_{i,j}A_{r,i}]$ if $1 \leq r < s < i < j \leq n$
 
-8. 
-
+## The word problem
+1. Word: a word is a way to describe the braid in terms of basic operations that construct the braid. For example, $w=\sigma_1\sigma_2\sigma_1^{-1}$.
+2. positive braid: $\mathbf{B}_n^+:=\{\beta\in\mathbf{B}_n|\beta=\sigma_{i_1}\cdots\sigma_{i_k},1\leq i_j\leq n-1,k\in\mathbb{N}\}$. The positive braid consists of all positive word.
+3. Theorem: If two positive n-braids are equivalent, then when written as positive word they are of the same length.
+Since $\beta,\beta'$ are positive braids, the length of their words equals to the exponent sum:
+$$\beta\sim\beta',\ \beta,\beta'\in\mathcal{B}_n\Longleftrightarrow
+exp(\beta)=exp(\beta')$$
+4. The Garside braid $\Delta_n\in\mathbf{B}_n$ by
+$\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-2})\cdots(\sigma_1\sigma_2)(\sigma_1)=\Pi_{n-1}\Pi_{n-2}\cdots\Pi_2\Pi_1$. Here is some properties:
+    * $\forall i,r, 1<i\leq r\leq n-1, \sigma_i\Pi_r=\Pi_r\sigma_{i-1}$
+    * $\forall 1\leq t\leq n-1, \sigma_1(\Pi_t\Pi_{t-1}\Pi_1)=(\Pi_t\Pi_{t-1}\Pi_1)\sigma_t$. Especially, $\sigma_1\Delta_n=\Delta_n\sigma_{n-1}$.
+    * $\sigma_i\Delta_n=\Delta_n\sigma_{n-i}$
+5. Using the properties, we have theorems:
+    * $\sigma_i\Delta_n^2=\Delta_n^2\sigma_i$. The square of the Garside braid is in the centre of $\mathbf{B}_n$
+    * The inner automorphism defined by $\tau(\beta)=\Delta_n^{-1}\beta\Delta_n$ sends $\sigma_i$ to $\sigma_{n-i}$, which means $\tau(\sigma_i)=\sigma_{n-i}$.
+6. reverse of a word: $w=\sigma_{i_1}^{\epsilon_1}\cdots\sigma_{i_k}^{\epsilon_k}$ and its reverse $rev(w)=\sigma_{i_k}^{\epsilon_k}\cdots\sigma_{i_1}^{\epsilon_1}$
+    * $rev(w_1w_2)=rev(w_2)rev(w_1)$
+    * $rev(\Pi_r\cdots\Pi_1)=\Pi_r\cdots\Pi_1$
+    * $rev(\Delta_n)=\Delta_n$
