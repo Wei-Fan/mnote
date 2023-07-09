@@ -33,3 +33,18 @@
 - Newtonian to Lagrangian: $m\ddot{x}=F\Rightarrow dp/dt=-\partial U/\partial x\Rightarrow \frac{d}{dt}\frac{\partial T}{\partial \dot{x}}=-\partial U/\partial x \Rightarrow \frac{d}{dt}\frac{\partial T-U}{\partial \dot{x}}=\frac{\partial T-U}{\partial x} \Rightarrow \frac{d}{dt}\frac{\partial L}{\partial \dot{x}}-\frac{\partial L}{\partial x}=0$
 - Let $L = T-U$ for the sake of simplication of the equation.
 - Lagrange's Equation in generalized coordinates: $\frac{d}{dt}\frac{\partial L}{\partial \dot{q_j}}-\frac{\partial L}{\partial q_j}=0$
+2. Hamilton's Principle
+- Path: the trajectory of the point in configuration space $\{q_i\}$: $q_i=q_i(t)$.
+- Action: we consider only paths are differentiable $S=\int^{t_2}_{t_1}{L(q(t),\dot{q}(t),t)dt}$.
+- $\delta S=\int(\frac{\partial{L}}{\partial{q}}\delta q+\frac{\partial{L}}{\partial\dot{q}}\delta\dot{q})dt=\frac{\partial{L}}{\partial\dot{q}}\delta q|^f_i+\int[\frac{\partial L}{\partial q}-\frac{d}{dt}\frac{\partial L}{\partial \dot{q}}]\delta qdt=\frac{\partial{L}}{\partial\dot{q}}\delta q|^f_i$.
+- note: using Hamilton's Principle, we can find the path that minimizes the action.
+3. Conserved Quantities
+- ignorable coordinate: if the Lagrangian does not depend on one coordinate, then that coordinate is an ignorable coordinate, which means $\frac{d}{dt}\frac{\partial{L}}{\partial{\dot{q}_k}}=\frac{\partial{L}}{\partial{q_k}}=0$.
+- Generalized momentum: $P_k:=\frac{\partial{L}}{\partial{\dot{q}_k}}$. If $q_k$ is ignorable, then $\frac{dP_k}{dt}=0$, which means $P_k$ is conserved in $q_k$.
+- ***Hamiltonian***: $H(q,\dot{q},t):=\sum_i{\dot{q_i}\frac{\partial{L}}{\partial\dot{q_i}}-L}=\sum_i{\dot{q_i}P_i}-L$. By this definition, we have $\frac{dH}{dt}=-\frac{\partial{L}}{\partial{t}}$. If $\partial{L}/\partial{t}=0$, then $H$ is conserved.
+- Let $L=L_2+L_1+L_0$ as a sum of quadratic term, linear term and independent of $\dot{q}$. Then, $H=2L_2+L_1-L_2-L_1-L_0=L_2-L_0$. If the system is described by cartesian coordinates, then $L_2=T,L_0=-U\Rightarrow H=T+U$, which is the ordinary energy.
+- Hamilton's Equation: rewrite $H$ as a function of $q,P$: $H(q,\dot{q},t)=H(q,P,t)$. We have the two Hamilton's equations of motion:
+    - $\dot{q_k}=\frac{\partial H}{\partial P_k}$
+    - $\dot{P_k}=-\frac{\partial H}{\partial q_k}$
+    - Because $dH=\sum_k(\dot{q_k}dP_k+P_kd\dot{q_k})-dL=\sum_k(\dot{q_k}dP_k+P_kd\dot{q_k})-\sum_k(P_kdq_k+P_kd\dot{q_k})-\frac{\partial L}{\partial t}dt=\sum_k(\dot{q_k}dP_k-\dot{P_k}dq_k)-\frac{\partial L}{\partial t}dt$
+
