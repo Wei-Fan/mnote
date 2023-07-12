@@ -13,7 +13,7 @@
 - total momentum: $P=M\frac{dR}{dt}$
 - total angular momentum: $L=\sum{r_i\times p_i}=\sum{r_i'\times p_i'}+R\times P$
 - Kinetic energy: $T=\frac{1}{2}\sum{m_iv_i^2}=\frac{1}{2}\sum{m_iv_i'^2}+\frac{1}{2}MV^2$
-- Holonomic constraints: the constraints can be phrased on coordinates and time only, as $\Phi_i(r_1,\cdots,r_n,t)=0,\ i=1,\cdots,k$. A $3n-k$ dimensional manifold is determined by the constraints in configuration space to which all motion of the system is confined. Let $q_j,j=1,\cdots,3n-k$ be the generalized coodinates, and then we have $r_i=r_i(q_1,\cdots,q_{3n-k},t)$, determined by $\Phi(\{r_i\})=0$. 
+- Holonomic constraints: the constraints can be phrased on coordinates and time only, as $\Phi_i(r_1,\cdots,r_n,t)=0,\ i=1,\cdots,k$. A $3n-k$ dimensional manifold is determined by the constraints in configuration space to which all motion of the system is confined. Let $q_j,j=1,\cdots,3n-k$ be the generalized coodinates, and then we have $r_i=r_i(q_1,\cdots,q_{3n-k},t)$, determined by $\Phi(\{r_i\})=0$.
     - note: $3n-k$ is also knowned as the degree of freedom of the system, if the systmem is a rigid body.
     - notice that the constraints should only includes $r$ and $t$.
 - Generalized force: Potential force in the generalized coordinates $\{q\}$.
