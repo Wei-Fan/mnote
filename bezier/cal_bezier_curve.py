@@ -19,7 +19,7 @@ def calculate_bezier_curve(points, min_radius, num_points=100):
   return curve, points
 
 # Define control points
-control_points = np.array([[1, 1], [2, 1], [6, 4], [7, 4]])
+control_points = np.array([[1, 1], [3, 1], [6, 4], [6, 6]])
 
 curve, new_control_points = calculate_bezier_curve(control_points, min_radius=1)
 
