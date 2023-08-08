@@ -39,7 +39,7 @@ $$B_i=(\frac{1}{2},\frac{i}{n+1},0)$$
 4. n-braid group: $\mathbf{B}_n:=\mathcal{B}_n/\sim$ with multiply operation.
     * any two braids in the n-braid group is not equivalent to each other (braids in n-braid group are unique)
     * Group definition: (1) closed: $[\beta_1][\beta_2]=[\beta_1\beta_2]\in\mathbf{B}_n$;
-    (2) multiply is an associative operation: $([\beta_1[]\beta_2])[\beta_3]\sim[\beta_1]([\beta_2][\beta_3])$;
+    (2) multiply is an associative operation: $([\beta_1][\beta_2])[\beta_3]\sim[\beta_1]([\beta_2][\beta_3])$;
     (3) has identity element: $[1_n]$;
     (4) has inverse: $[\beta_1]^{-1}:=[\beta_1^{-1}]$
 5. Any braid in n-braid group can be written as the product of Artin generators: $\beta=\sigma_{i_1}^{\epsilon_1}\dots\sigma_{i_k}^{\epsilon_k}$, $1\leq i_1,\dots,i_k\leq n-1,\epsilon_i\in\{-1,1\}$.
@@ -90,3 +90,32 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
     * $rev(w_1w_2)=rev(w_2)rev(w_1)$
     * $rev(\Pi_r\cdots\Pi_1)=\Pi_r\cdots\Pi_1$
     * $rev(\Delta_n)=\Delta_n$
+
+
+
+# Ordering Braids
+## Braid Groups
+### The Artin presentation
+1. Braid relations: $B_n$ is the *n-strand braid group* presented by Artin generators $\sigma_1,\dots,\sigma_{n-1}$.
+    - note: $B_n$ is a subgroup of $B_\infty$
+2. Braid words:
+    - *n-strand braid word*: a word on the letters $\sigma_1^{\pm1},\dots,\sigma_{n-1}^{\pm1}$.
+    - length of a braid word $w$: $l(w)$
+    - the braid word $w$ represents $\beta$: $\beta=\overline{w}$
+
+### Isotopy classes of braid diagrams
+1. Geometric braids
+![geometry braid](geometry_braid.png)
+    - note: the disk $D^2$ can be replaced by any compact surface $\cal{S}$ with boundary. Choosing n puncture points in $\cal{S}$, the *n-strand braid groups* can be defined in $\cal{S}\times[0,1]$.
+    - The idea is simply to look at braids from one end rather than from the side.
+2. $B_n$ is the group of isotopy classes of n-strand geometric braids.
+### Mapping class groups
+1. homeomorphisms of a surface
+    - $\cal{S}$: an oriented compact surface
+    - $\cal{P}$: a finite set of distinguished interior points of $\cal{S}$
+    - $\cal{MCG}(\cal{S},\cal{P})$: *the mapping class group*.
+    - convention: the product on $\cal{MCG}$ is composition: e.g. $\varphi\phi$ means "first $\varphi$, then $\phi$".
+2. Curve diagrams
+![curve diagrams](curve_diagrams.png)
+### Positive braids
+1. Braid monoids.
