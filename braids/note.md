@@ -176,3 +176,15 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
     - S. Every braid of the form $β^{−1}σ_iβ$ is $σ$-positive.
     - A (second form). A $σ_1$ -positive braid word is not trivial.
     - C (second form) Every braid of $B_n$ admits an n-strand representative word that is $σ_1$ -positive, $σ_1$-negative, or $σ_1$-free.
+
+
+# EFFICIENT SOLUTIONS TO THE BRAID ISOTOPY PROBLEM
+### The greedy normal form
+1. Left divisor. $\forall x,y\in B_n^{+}$, $y=xz$, then $x\prec_L y$ and x is a left divisor of y, y is a right multiple of x.
+    - right divisor. $\forall x,y\in B_n^{+}$, $y=zx$, then $x\prec_R y$ and x is a left divisor of y, y is a right multiple of x.
+    - note: the definition is the same as that in previous section.
+2. Simple braids. The left and right divisors of Garside braid $\Delta_n$ are coincide.
+    - For example, $\Delta_n=\delta_n\Delta_{n-1}$, then $\delta_n$ is a left divisor and $\Delta_{n-1}$ is a right divisor of $\Delta_n$.
+    - The simple braids form a finite sublattics of $B^+_n$ with $n!$ elements.
+3. A sequence of simple braids $(s_1,\dots,s_p)$ is *normal*, if $\forall k < p$ and $\forall \sigma_i$ is a left divisor of $s_{k+1}$, then $\sigma_i$ is a right divisor of $s_k$.
+4. A sequence of permutations $(f_1,\dots,f_p)$ is *normal*, if $\forall k<P$ and $f^{-1}_{k+1}(i)>f^{-1}_{k+1}(i+1)$, then $f_k(i)>f_k(i+1)$.
