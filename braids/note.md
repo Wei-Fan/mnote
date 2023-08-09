@@ -46,8 +46,10 @@ $$B_i=(\frac{1}{2},\frac{i}{n+1},0)$$
     * note: move the intersection points to different levels and separate them to obtain artin components.
     * Artin generators for $\mathbf{B}_n$: $\{\sigma_1,\dots,\sigma_{n-1}\}$, where $\sigma_i$ is the braid with only one crossing: $A_iB_{i+1}$ crosses under $A_{i+1}B_i$.
 6. Theorems:
-    * $\forall |i-j|\geq2\Longrightarrow\sigma_i\sigma_j=\sigma_j\sigma_i$. note: the artin components can exchange if they are not tangled.
+    * $\forall |i-j|\geq2\Longrightarrow\sigma_i\sigma_j=\sigma_j\sigma_i$ or $\sigma_i^{-1}\sigma_j=\sigma_j\sigma_i^{-1}$ or $\sigma_i\sigma_j^{-1}=\sigma_j^{-1}\sigma_i$. note: the artin components can exchange if they are not tangled.
     * $\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}$
+    * $\sigma_i^{-1}\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}^{-1}$
+    * $\sigma_i\sigma_{i+1}\sigma_i^{-1}=\sigma_{i+1}^{-1}\sigma_i\sigma_{i+1}$
 7. presentation of a group: A presentation of a group G comprises a set S of generators and a set R of relations among those generators. We then say G has presentation $\langle S\mid R\rangle$.
     * Presentation of the n-braid group:
     $$\mathbf{B}_n = \langle\sigma_1.\dots,\sigma_{n-1}|\sigma_i\sigma_j=\sigma_j\sigma_i,|i-j|\geq2,\\ \sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}, 1\leq i\leq n-2\rangle$$
@@ -118,4 +120,59 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
 2. Curve diagrams
 ![curve diagrams](curve_diagrams.png)
 ### Positive braids
-1. Braid monoids.
+1. Braid monoids:
+    - positive word: words in the letters $\sigma_i$ but not $\sigma_i^{-1}$.
+    - positive braid: the elements of $B_n^+$ are represented by positive words.
+    - $B_n^+$ is a monoid
+2. The canonical mapping of $B^+_n$ to $B_n$ is injective.
+    - understand: You can uniquely identify a positive braid in the context of all possible braids. No two different positive braids will be considered the same when looking at them within the broader group of all braids.
+3. Fundamental braids $\delta_n$ and $\Delta_n$
+    - $\delta_n = \sigma_1\dots\sigma_{n-1}$
+    - $\Delta_n = \delta_n\dots\delta_2$ (Garside braid)
+    - relations
+        - $\delta_n\sigma_i=\sigma_{i+1}\delta_n$
+        - $\Delta_n\sigma_i=\sigma_{n-i}\Delta_n$
+        - $\delta_n\delta_n\delta_n\delta_n=\Delta_n\Delta_n$
+    - cycling automorphism $\phi_n:\beta\rightarrow\delta_n\beta\delta^{-1}_n$
+    - flip automorphism $\Phi_n:\beta\rightarrow\Delta_n\beta\Delta^{-1}_n$
+    - relations
+        - $\phi_n(\sigma_i)=\sigma_{i+1},i\leq n-2$
+        - $\Phi_n(\sigma_i)=\sigma_{n-i},i\leq n-1$
+
+4. Fractionary decompositions
+    - Every braid is a quotient of two positive braids.
+    - Consider decompositions in which he denominator is a power of the Garside braid $\Delta_n$:
+        - Every braid $\beta$ admits a decomposition $\beta=\Delta_n^{-2p}\beta'$.
+        - Let $w$ is the word of $\beta$. $p$ is the number of negative letters in $w$
+        - Let $beta'$ be the braid from $\beta$ by replacing $\sigma_i^{-1}$ with $\sigma_i^{-1}\Delta_n^2\Longrightarrow \beta'=\Delta_n^{2p}\beta$
+        - Lemma: $\forall i \leq n-1$, $\Delta_n$ can be expressed by a positive word that begins with $\sigma_i$
+        - $\beta'$ is positive.
+
+## Linear Ordering of Braids (Dehornoy ordering)
+### The $\sigma$-ordering of $B_n$
+1. A group is orderable if there exist a strict ordering.
+    - strict ordering $\prec$ of a set: (1) antireflexive. $x\prec x$ never hold. (2) transitive. $x\prec y, y\prec, z\Rightarrow x\prec z$.
+2. Definition.
+    - Left-ordering or Left-invariant ordering. $x\prec y\Rightarrow zx\prec zy$.
+    - Bi-ordering or bi-invariant ordering. The group is both left-orderable and right-orderable.
+3. The $\sigma$-ordering of braids
+    - A word $w$ is *$\sigma$-positive* (*$\sigma$-negative*) if $\sigma_i$ with lowest index occurs only positively (negatively). e.g. $\sigma_3\sigma_2\sigma^{-1}_3$ is *$\sigma$-positive*.
+    - A word $w$ is $\sigma_i$-positive if it has at least one $\sigma_i$ but no $\sigma_i^{-1}$ and no $\sigma^{\pm1}_j,j<i$.
+    - A word $w$ is $\sigma_i$-free if it doesn't has $\sigma^{\pm1}_j,j\leq i$.
+4. Define $<_n$: $\forall \beta,\beta'\in B_n$, if $\beta^{-1}\beta'$ has a word that is $\sigma$-positive, then $\beta<_n\beta'$.
+    - e.g. $\beta=\sigma_2$ and $\beta'=\sigma_3\sigma_2$. Since $\sigma_2^{-1}\sigma_3\sigma_2=\sigma_3\sigma_2\sigma_3^{-1}$, $\beta<_4\beta'$
+    - Since $\sigma_{i+1}^{-1}\sigma_i$ is $\sigma$-positive, we have: $\sigma_\infty<_\infty\cdots<_\infty\sigma_2<_\infty\sigma_1$.
+5. $<_n$ is a left-invariant ordering of $B_n$.
+    - $B_n$ cannot be bi-invariant orderable.
+6. The $\sigma^\Phi$-ordering of braids
+    - Define $<_n^\Phi$: $\forall \beta,\beta'\in B_n$, if $\Phi(\beta)<_n^\Phi\Phi(\beta')$, then $\beta<_n^\Phi \beta'$.
+    - A word $w$ is $\sigma^\Phi$-positive if $\sigma_i$ with highest index occurs only positively
+7. Define $<_n^\Phi$: $\forall \beta,\beta'\in B_n$, if $\beta^{-1}\beta'$ has a word that is $\sigma^\Phi$-positive, then $\beta<_n^\Phi\beta'$.
+    - $1<^\Phi\sigma_1<^\Phi\sigma_2<^\Phi\cdots$.
+
+8. **Property**
+    - A. A $\sigma$-positive braid word is not trivial.
+    - C. Every nontrivial braid of $B_n$ admits an n-strand representative word that is $\sigma$-positive or $\sigma$-negative.
+    - S. Every braid of the form $β^{−1}σ_iβ$ is $σ$-positive.
+    - A (second form). A $σ_1$ -positive braid word is not trivial.
+    - C (second form) Every braid of $B_n$ admits an n-strand representative word that is $σ_1$ -positive, $σ_1$-negative, or $σ_1$-free.
