@@ -144,9 +144,13 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
     - Consider decompositions in which he denominator is a power of the Garside braid $\Delta_n$:
         - Every braid $\beta$ admits a decomposition $\beta=\Delta_n^{-2p}\beta'$.
         - Let $w$ is the word of $\beta$. $p$ is the number of negative letters in $w$
-        - Let $beta'$ be the braid from $\beta$ by replacing $\sigma_i^{-1}$ with $\sigma_i^{-1}\Delta_n^2\Longrightarrow \beta'=\Delta_n^{2p}\beta$
+        - Let $\beta'$ be the braid from $\beta$ by replacing $\sigma_i^{-1}$ with $\sigma_i^{-1}\Delta_n^2\Longrightarrow \beta'=\Delta_n^{2p}\beta$
         - Lemma: $\forall i \leq n-1$, $\Delta_n$ can be expressed by a positive word that begins with $\sigma_i$
         - $\beta'$ is positive.
+5. The poset $(B^+_n,\preceq)$ is a **lattice**
+    - **lattice** in math: lattice is a set which satisfies that any pair of elements has a least upper bound and a greatest lower bound. For example, a set with the operations of union and intersection.
+    - **GCD (greatest common left divisor) of x and y**: $\exist z\in B^+_n,s.t. x= zx',y=zy'$. $gcd_L(x,y):=z$.
+    - **LCM (least common right multiple) of x and y**: $\exist z\in B^+_n, s.t. z=xx'=yy'$ and $gcd_L(x',y')=1$. $lcm_R(x,y):=z$.
 
 ## Linear Ordering of Braids (Dehornoy ordering)
 ### The $\sigma$-ordering of $B_n$
@@ -220,12 +224,39 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
     - $x\preceq_L y \Longleftrightarrow \alpha(x)\preceq_L \alpha(y)$
     - $\alpha(xy) = \alpha(x\alpha(y))$
 3. Lemma 2. a sequence of simple braid $(s_1,\dots,s_p)$ is normal $\Longleftrightarrow s_k=\alpha(s_ks_{k+1})$.
+    - Lemma 2.1. Any divisor of $\Delta_n$ do not contain $\sigma_i^2$ in the word. Therefore, if $s_k\neq\alpha(s_ks_{k+1})$, then there will be $\sigma_i^2$ in $\alpha(s_ks_{k+1})$, which will not be a left divisor of $\Delta_n$.
 4. Definition. $\forall x,y \in B^+_n$, there is a unique $x'\in b^+_n$ satisfying $lcm_L(x,y)=x'y$. $x'$ is called the left complement of x in y and denoted by $x/y$.
     - Let $z:=lcm_L(x,y)$. Then, $\exist a,b\in B_n^+, z=ax,z=by$.
     - If y is a right divisor of x, then $lcm_L(x,y)=x\Longleftrightarrow y/x\cdot x = x, x/y\cdot y = x \Longleftrightarrow y/x = 1,x/y=xy^{-1}$.
+    - intuitively, $x/y$ means what is left in $x$ after removed the greatest common right divisor of $x$ and $y$.
 5. *C-tile*: four simple braids $s,t,s',t'$ satisfying $s't=t's$ and $gcd_L(s',t')=1$.
 6. Lemma 3. Simple braids $s_1,s_2,s_1',s_2',t_0,t_1,t_2$. We have $t_2s_1=s_1't_1, t_1s_2=s_2't_0, gcd_L(s_2',t_1)=1$ and $(s_1,s_2)$ is normal. Then $(s_1',s_2')$ is normal as well.
 ![c-tile_1](c-tile1.png)
 
-7. Lemma 4. $(s_1,s_2)$ and $(t_1,t_2)$ are normal sequences of simple braids, $pcd_L(s_2',t_2')=1$ $\implies$ $(u_1,u_2)$, $(u_1,s_2')$, and $(u_1,t_2')$ are normal.
+7. Lemma 4. $(s_1,s_2)$ and $(t_1,t_2)$ are normal sequences of simple braids, $gcd_L(s_2',t_2')=1$ $\implies$ $(u_1,u_2)$, $(u_1,s_2')$, and $(u_1,t_2')$ are normal.
 ![c-tile_2](c-tile2.png)
+
+8. **Construction of the left lcm and the left complements by grid method.**
+![c-tile_3](c-tile3.png)
+    - known: $x=s_1\cdots s_p,y=t_1\cdots t_q, p\geq q$
+    - $lcm_L(x,y)=u_1\cdots u_qs_{q+1}\cdots s_p$
+    - $x/y=s'_1\cdots s'_p, y/x=t'_1\cdots t'_q$
+9. Define *P-tile*. Four simple braids $s_1,s_2,t_1,t_2$ satisfying $s_1s_2=t_1t_2$ and $(s_1,s_2)$ is normal. THe diagram made from these four braids is called *P-tile*.
+
+    ![P-tile_1](p-tile1.png)
+10. Lemma 5. Simple braids $s_1,s_2,s_1',s_2',t_0,t_1,t_2$ satisfying $t_0s_1=s_1't_1,t_1s_2=s_2't_2$ and $(s_1,s_2),(s_1',t_1)$ are normal. Then, $(s_1',s_2')$ is normal.
+
+    ![P-tile_2](p-tile2.png)
+
+11. Lemma 6. Simple braids $s,t$. $(s,t)$ is normal $\Longleftrightarrow$ $gcd_L(s^*,t)=1$, where $ss^*=\Delta_n$.
+    - proof. From lemma 2, $(s,t)$ is normal $\Longleftrightarrow\ \alpha(st)=s$. $\because\ gcd_L(s^*,t)=1\ \therefore\ \alpha(st)=gcd_L(st,\Delta_n)=gcd_L(st,ss^*)=s\cdot gcd_L(t,s^*)=s$
+12. Lemma 7. Simple braids $s_0,s_1,s_2,t_1,t_2,t_1',t_2'$ satisfying $t_1s_1=s_0t_1',t_2s_2=s_1t_2'$ and $(t_1,t_2),(s_1,t_2')$ are normal. Then, $(t_1',t_2')$ is normal.
+
+    ![P-tile_3](p-tile3.png)
+
+13. Construction of the product by grid method.
+    ![P-tile_4](p-tile4.png)
+    - known: $x=s_1\cdots s_p,y=t_1\cdots t_q$
+    - $yx=s'_1\cdots s'_pt'_1\cdots t'_q$
+
+14. **Computing the greedy normal form**.
