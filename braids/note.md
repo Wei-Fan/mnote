@@ -180,11 +180,52 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
 
 # EFFICIENT SOLUTIONS TO THE BRAID ISOTOPY PROBLEM
 ### The greedy normal form
-1. Left divisor. $\forall x,y\in B_n^{+}$, $y=xz$, then $x\prec_L y$ and x is a left divisor of y, y is a right multiple of x.
-    - right divisor. $\forall x,y\in B_n^{+}$, $y=zx$, then $x\prec_R y$ and x is a left divisor of y, y is a right multiple of x.
+0. $B_n^+$ contains braids that can be represented by one positive word. A positive word contains no letter $\sigma_i^{-1}$.
+    - Any two positive n-braids $x,y$ admit a greatest common left divisor $gcd_L(x,y)$ and a least common right multiple.
+1. Left divisor. $\forall x,y,z\in B_n^{+}$, $y=xz$, then $x\prec_L y$ and x is a left divisor of y, y is a right multiple of x.
+    - right divisor. $\forall x,y,z\in B_n^{+}$, $y=zx$, then $x\prec_R y$ and x is a right divisor of y, y is a left multiple of x.
     - note: the definition is the same as that in previous section.
 2. Simple braids. The left and right divisors of Garside braid $\Delta_n$ are coincide.
     - For example, $\Delta_n=\delta_n\Delta_{n-1}$, then $\delta_n$ is a left divisor and $\Delta_{n-1}$ is a right divisor of $\Delta_n$.
     - The simple braids form a finite sublattics of $B^+_n$ with $n!$ elements.
 3. A sequence of simple braids $(s_1,\dots,s_p)$ is *normal*, if $\forall k < p$ and $\forall \sigma_i$ is a left divisor of $s_{k+1}$, then $\sigma_i$ is a right divisor of $s_k$.
 4. A sequence of permutations $(f_1,\dots,f_p)$ is *normal*, if $\forall k<P$ and $f^{-1}_{k+1}(i)>f^{-1}_{k+1}(i+1)$, then $f_k(i)>f_k(i+1)$.
+    - note: to understand the relation between 3 and 4, we need to find the meanings of left or right divisor in permutation.
+        - Lemma. $\sigma_i$ is a right divisor $\Longleftrightarrow$ $f_k(i)>f_k(i+1)$. The proof is intuitive, because there is no $\sigma_i^{-1}$.
+        - The right divisor of $\beta$ is the left divisor of $\beta^{-1}$.
+
+5. Theorem.
+    - Every braid $z\in B_n$ can be written as $z=\Delta_n^ms_1s_2\dots s_p$ and $(s_1,\dots,s_p)$ is a normal sequence, satisfying $s_1\neq\Delta_n,s_p\neq1$.
+    - Every braid $z\in B_n$ can be written as $z=\Delta_n^m\overline{f_1}\dots\overline{f_p}$ and $(f_1,\dots,f_p)$ is a normal sequence, satisfying $f_1\neq w_n,f_p\neq id$.
+    - *The greed normal form of braid*: $(m;s_1,\dots,s_p)$ or $(m;f_1,\dots,f_p)$
+    - for example, $(0;\empty)$ is the greedy normal form of $1$.
+    - note: the greedy normal forms is unique. Which means: (1) A braid can only have one greedy normal form. (2) If the greedy normal forms of two braids are different, then the braids are different.
+6. Explanation.
+    - In the greedy normal form $\Delta_n^ms_1\dots s_p:=\Delta_n^m x$, $x\in B_n^+$ and $\Delta_n\npreceq_L x$.
+        - proof. If $\Delta_n\preceq x$, then we can always have $x=\Delta_n x'$ because $\Delta_n\sigma_i=\sigma_{n-i}\Delta_n$. And there will be two greedy normal forms $\Delta_n^mx=\Delta_n^{m+1}x'$, which contracdicts uniqueness.
+    - $\forall x\in B_n^+$, there exists a unique normal sequnce $(s_1,\dots,s_p)$ of simple n-braids with $s_p\neq1$ satisfying $x=s_1\dots s_p$.
+    - $gcd_L(x,y)=1\Longleftrightarrow gcd_L(s_1,t_1)=1$.
+
+### The symmetric normal form
+1. Theorem.
+    - Every braid $z\in B_n$ can be written as $z=t^{-1}_q\dots t^{-1}_1s_1s_2\dots s_p$ and $(t_1,\dots,t_q), (s_1,\dots,s_p)$ are a normal sequences, satisfying $t_1\neq1,s_p\neq1$ and $gcd_L(s_1,t_1)=1$.
+    - Every braid $z\in B_n$ can be written as $z=\overline{g_1}^{-1}\dots\overline{g_q}^{-1}\overline{f_1}\dots\overline{f_p}$ and $(f_1,\dots,f_p), (g_1,\dots,g_q)$ are a normal sequences, satisfying $f_1^{-1}(i)>f_1^{-1}(i+1) \Rightarrow g_1^{-1}(i)\leq g_1^{-1}(i+1)$.
+    - for example, $(\empty;\empty)$ is the symmetric normal form of $1$.
+    - note: the greedy normal forms is unique.
+
+### Grid Properties of the Normal Form
+1. Problem statement: $\forall x,y\in B_n^+$, (1) find the greedy normal form of $yx$; (2) assuming that y is a right divisor of x ($x=zy$), find the greedy normal form of $xy^{-1}$.
+2. Lemma 1. $\forall z\in B^+_n$, define $\alpha(z):=gcd_L(z,\Delta_n)$. $\forall x,y\in B_n$:
+    - $\alpha(x)\preceq_L x$, and $\alpha(x) = x$ if x is simple.
+    - $x\preceq_L y \Longleftrightarrow \alpha(x)\preceq_L \alpha(y)$
+    - $\alpha(xy) = \alpha(x\alpha(y))$
+3. Lemma 2. a sequence of simple braid $(s_1,\dots,s_p)$ is normal $\Longleftrightarrow s_k=\alpha(s_ks_{k+1})$.
+4. Definition. $\forall x,y \in B^+_n$, there is a unique $x'\in b^+_n$ satisfying $lcm_L(x,y)=x'y$. $x'$ is called the left complement of x in y and denoted by $x/y$.
+    - Let $z:=lcm_L(x,y)$. Then, $\exist a,b\in B_n^+, z=ax,z=by$.
+    - If y is a right divisor of x, then $lcm_L(x,y)=x\Longleftrightarrow y/x\cdot x = x, x/y\cdot y = x \Longleftrightarrow y/x = 1,x/y=xy^{-1}$.
+5. *C-tile*: four simple braids $s,t,s',t'$ satisfying $s't=t's$ and $gcd_L(s',t')=1$.
+6. Lemma 3. Simple braids $s_1,s_2,s_1',s_2',t_0,t_1,t_2$. We have $t_2s_1=s_1't_1, t_1s_2=s_2't_0, gcd_L(s_2',t_1)=1$ and $(s_1,s_2)$ is normal. Then $(s_1',s_2')$ is normal as well.
+![c-tile_1](c-tile1.png)
+
+7. Lemma 4. $(s_1,s_2)$ and $(t_1,t_2)$ are normal sequences of simple braids, $pcd_L(s_2',t_2')=1$ $\implies$ $(u_1,u_2)$, $(u_1,s_2')$, and $(u_1,t_2')$ are normal.
+![c-tile_2](c-tile2.png)
