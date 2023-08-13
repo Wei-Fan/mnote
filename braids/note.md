@@ -260,3 +260,14 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
     - $yx=s'_1\cdots s'_pt'_1\cdots t'_q$
 
 14. **Computing the greedy normal form**.
+    ![compute](compute.png)
+    - $w_0=(0;\empty)$. Start from the first letter of $w$ and noted as $w_1$. Add the second letter using proposition. Let the second be $u$, and calculate the word $w_2=w_1u$ based on diagram (i) or (ii).
+    - Repeat the action until $w_n=w$.
+
+### Direct Solutions
+1. word redressing. $w$ is right redressible to $w'$, or say $w\curvearrowright w'$ holds, if one of the followings exists:
+    - delete $\sigma_i^{-1}\sigma_i$
+    - replace $\sigma_i^{-1}\sigma_j$ with $|i-j|\geq 2$ by $\sigma_j\sigma_i^{-1}$
+    - replace $\sigma_i^{-1}\sigma_j$ with $|i-j|=1$ by $\sigma_j\sigma_i\sigma_j^{-1}\sigma_i  ^{-1}$
+2. Theorem. For all braid word w, there exist two unqiue positive braid words such that $w\curvearrowright w'w''^{-1}$.
+3. Handle reduction
