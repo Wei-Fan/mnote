@@ -271,3 +271,15 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
     - replace $\sigma_i^{-1}\sigma_j$ with $|i-j|=1$ by $\sigma_j\sigma_i\sigma_j^{-1}\sigma_i  ^{-1}$
 2. Theorem. For all braid word w, there exist two unqiue positive braid words such that $w\curvearrowright w'w''^{-1}$.
 3. Handle reduction
+    - *$\sigma_i$-handle*: $w=\sigma_i^ew_0\sigma_{i+1}^dw_1\sigma_{i+1}^d\cdots\sigma_{i+1}^dw_m\sigma_i^{-e}$, where $d=\pm1$ and $w_0,\dots,w_m$ containing no $\sigma_j^{\pm1}$ with $j\leq i+1$. We can delete the initail and final letters $\sigma_i^{\pm1}$, and we replace $\sigma_{i+1}^d$ with $\sigma_{i+1}^{-e}\sigma_i^d\sigma_{i+1}^e$. $\Rightarrow w'=w_o\sigma_{i+1}^{-e}\sigma_i^d\sigma_{i+1}^ew_1\sigma_{i+1}^{-e}\sigma_i^d\sigma_{i+1}^e\cdots\sigma_{i+1}^{-e}\sigma_i^d\sigma_{i+1}^ew_m$.
+    - $w$ is *reduced* $\Longleftrightarrow$ $w$ contains no *$\sigma_i$-handle*, where $\sigma_i$ is the generator with minimal index in $w$.
+    - Example. $w_0=aBabacABABAbbCB$. Reduce the leftmost handle at each step.
+        - Start from left. Find the negative $\sigma$ and check if it is a $\sigma$-handle. We get $A$ and the $\sigma_1$-handle like this: $aBab\underline{acA}BABAbbCB$
+        - Reduce the $\sigma_1$-handle like this: $aBabcBABAbbCB$.
+        - Repeat. $1:aBa\underline{bcB}ABAbbCB$
+        - $2:aB\underline{aCbcA}BAbbCB$
+        - $3:aBCBa\underline{bcB}AbbCB$
+        - $4:aBCB\underline{aCbcA}bbCB$
+        - $5:aBCBCBabcbbCB$
+
+4. Dynnikov coordinates.
