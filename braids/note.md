@@ -289,6 +289,6 @@ $\Delta_n:=(\sigma_1\sigma_2\cdots\sigma_{n-1})(\sigma_1\sigma_2\cdots\sigma_{n-
     ![dynnikov](dynnikov.png)
     - Algorithm: Start from left. Calculate $(0,1,0,1,\dots,0,1)\cdot w_0$, where $w_0$ is the first left letter in $w$. Repeat the calculation until all letters in $w$ are calculated.
     - Calculation.
-        - $(a_1,b_1,\dots,a_{n+1},b_{n+1})\cdot\sigma_i^d = (a'_1,b'_1,\dots,a'_{n+1},b'_{n+1})$, where $a'_k=a_k,b'_k=b_k,\forall k\neq i, i+1$.
+        - $(a_1,b_1,\dots,a_n,b_n)\cdot\sigma_i^d = (a'_1,b'_1,\dots,a'_n,b'_n)$, where $a'_k=a_k,b'_k=b_k,\forall k\neq i, i+1$. note: $i=1,\dots,n-1$ and $n$ is the number of strings.
         - $(a'_i,b'_i,a'_{i+1},b'_{i+1}):= \begin{cases}F(a_i,b_i,a_{i+1},b_{i+1})&&d=1\\
         \bar{F}(a_i,b_i,a_{i+1},b_{i+1})&&d=-1\end{cases}$.
