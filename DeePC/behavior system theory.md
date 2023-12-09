@@ -63,3 +63,23 @@ a_{1} & \cdots & a_{m}
 - $n_\mathcal{B}^\Delta:=\{n\in\mathbb{R}^w[\xi]|\texttt{each element of n is of degree }\leq\Delta\}$. The element of annihilators is polynomial and the highest degree is less than $\Delta$.
 17. Foundamental Lemma. For $L\in \mathbb{Z}_+$, $n_\mathcal{B}^{L-1}=ker(\mathcal{B}_{[1,L]})$.
 - why? TODO!
+------------
+### Introduction to Dynamical Models
+1. A system $\Sigma=(\mathbb{T}, \mathbb{W},\mathcal{B})$ is complete if $\forall\omega:\mathbb{T}\rightarrow\mathbb{W}, \texttt{ if }\forall t_0,t_1\in\mathbb{T}, \omega_{[t_0,t_1]}\in\mathcal{B}_{[t_0,t_1]}\texttt{, then } \omega\in\mathcal{B}$.
+- $\mathcal{B}\subseteq\mathbb{W}^\mathbb{T}$.
+- *l-complete*: the window has finite width $t_1-t_0=l$.
+2. $\mathcal{L}^w$: the class of all discrete-time complete LTI systems with w variables.
+- $\forall \Sigma=(\mathbb{T},\mathbb{W},\mathcal{B})\subset\mathcal{L}^w\Rightarrow \mathbb{T}\subseteq\mathbb{Z}_+,\mathbb{W}\subseteq\mathbb{R}^w,\mathcal{B}\subseteq\mathbb{R}^{w\times\mathbb{Z}_+}$.
+- *l-complete* $\Leftrightarrow\ \exists$ a difference equation representation of that system with $l$ time shifts. 
+3. Kernel Representation. 
+- $R_0\omega(t)+R_1\omega(t+1)+\cdots+R_l\omega(t+l)=0\ \ (*)$, where $R_i\in\mathbb{R}^{g\times w}$.
+- represenation: $\mathcal{B}=\{\omega\in(\mathbb{R}^w)^\mathbb{Z}|(*)\texttt{ holds}\}$. Proof: $l$-complete and discrete-time means (*) holds for some t. LTI shows that (*) holds for all t in $\mathbb{Z}$.
+- Polynomial matrix representation: $\mathcal{B}=ker(R(\sigma))$. $R(z):=R_0+R_1z^1+\cdots+R_lz^l\in\mathbb{R}^{g\times w}[z]$. Then, $(*)\Leftrightarrow R(\sigma)w=0$. note: $\sigma^k\omega(t)=\omega(t+k)$, where $\sigma$ is the backward shift operator.
+- The polynomial matrix is not unique because (1) R might not be full row rank, (2) the equivalence of $R(\sigma)w=0$ and $U(\sigma)R(\sigma)w=0$.
+- *Minimal kernel representation*: for a given $\mathcal{B}\in\mathcal{L}^w$, there always exists a R has full row rank. The words *minimal* means that the number of equations (equal to row dimension of R) is minimal among all kernel representation.
+- *shortest lag representation*. Among all *minimal kernel representation*, there exists one with minimal maximum lag (the largest lag in all equations) and total lag (the sum of lag in all equations). In a shortest lag representation, R is row proper.
+- Row proper: The highest degree in the determinant of R is equal to the highest degree in a new matrix, where the element with highest degree in each row is on the main diagonal.
+4. Theorem. The following are equivalent for $\Sigma=(\mathbb{Z},\mathbb{R}^w,\mathcal{B})$:
+- $\Sigma$ is linear, time invariant, and complete.
+- $\mathcal{B}$ is linear, shift-invariant, and closed in the toplogy of pointwise convergence.
+- There is a polynomial matrix, such that $\mathcal{B}=ker(R(\sigma))$.
