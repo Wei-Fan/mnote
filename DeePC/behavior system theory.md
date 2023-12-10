@@ -83,3 +83,15 @@ a_{1} & \cdots & a_{m}
 - $\Sigma$ is linear, time invariant, and complete.
 - $\mathcal{B}$ is linear, shift-invariant, and closed in the toplogy of pointwise convergence.
 - There is a polynomial matrix, such that $\mathcal{B}=ker(R(\sigma))$.
+5. Behavior invariants.
+- $p(\mathcal{B})$: the number of equations, which is equal to the number of outputs. It is also called output cardinality of $\mathcal{B}$ in an I/O representation.
+- $m(\mathcal{B})$: input cardinality of $\mathcal{B}$. $m:=w-p$.
+- $n(\mathcal{B})$: the minimal state dimension of $\mathcal{B}$, which is the total lag.
+- $l(\mathcal{B})$: the lag of $\mathcal{B}$.
+6. Obtain the I/O system from behavior model.
+- Projection matrix $\Pi\in\mathbb{R}^{w\times w}$. Partition of a trajectory into $u$ and $y$: $\left[\begin{array}{c}u\\ y\end{array}\right]:=\Pi^T\omega$. $u\in(\mathbb{R}^m)^\mathbb{Z}$ and $y\in(\mathbb{R}^p)^\mathbb{Z}$.
+- The variables corresponding to the columns of full-rank submatrix of R $\leftrightarrow$ the dependent variables $\leftrightarrow$ output $y$. 
+- The variables corresponding to the other columns of R $\leftrightarrow$ the free variables $\leftrightarrow$ input $u$.
+- $m=\dim Nul R$ and $p=rank(R)=\dim Col R$.
+- For $ker(R(\sigma))$ being a minimal kernel represetation of $\mathcal{B}\in\mathcal{L}^w$, there exists a projection matrix $\Pi$, such that $P\in\mathbb{R}^{p\times p}[z]$ is full rank and $G(z):=P^{-1}(z)Q(z)$ is proper, where $[Q\ \ -P]:=R\Pi$. 
+- Note: $0=R(\sigma)\omega=R(\sigma)\Pi\Pi^T\omega=[Q\ \ -P]\left[\begin{array}{c}u\\ y\end{array}\right]=Q(\sigma)u-P(\sigma)y\implies P(\sigma)y=Q(\sigma)u\implies G(z)$ is the transfer function.
