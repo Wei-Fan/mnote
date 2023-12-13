@@ -144,3 +144,26 @@ a_{1} & \cdots & a_{m}
 - Polynomial vectors are independent over the field of reals. The only real numbers that satisfy $av_1+bv_2=0$ are zeros.
 - The annihilators set can be constructed by $$N_\mathcal{B}^L=image(r^{(1)}(z),zr^{(1)}(z),\dots,z^{l-\mu_1-1}r^{(1)}(z),\cdots,r^{(p)}(z),zr^{(p)}(z),\dots,z^{l-\mu_p-1}r^{(p)}(z))$$
 - $image$ means the set include a vector and vectors obtained by linear transformation of that vector.
+
+16. The Most Powerful Unfalsified Model: given a trajectory $\omega_d\in(\mathbb{R}^w)^T$, the system $\mathcal{B}$ is an MPUM if (1) $\mathcal{B}\in\mathcal{L}^w$ (finite dimensional LTI), (2) $\omega_d\in\mathcal{B}_{[1,T]}$ (unfalsified), and (3) $\forall \mathcal{B}'\in\mathcal{L}^w:\omega_d\in\mathcal{B}'_{[1,T]}$, $\mathcal{B}_{[1,T]}\subseteq \mathcal{B}'_{[1,T]}$ (most powerful).
+- Existence and uniqueness Theorem. $$\mathcal{B}_{mpum}(\omega_d)=\cap_{\omega_d\in\mathcal{B}_{[1,T]},\mathcal{B}\in\mathcal{L}^w}\mathcal{B}$$
+- Construction Proposition. $$\mathcal{B}_{mpum}(\omega_d)=closure(image(\omega_d,\sigma\omega_d,\sigma^2\omega_d,\dots))$$
+
+17. Identifiablity (not every trajectory can be identified, for example $\omega_d=0$)
+- Definition. A system $\mathcal{B}$ is identifiable from $\omega_d\in\mathcal{B}_{[1,T]}$ in the model class $\mathcal{L}^{w,n}_{m,l}$ if (1) $\mathcal{B}\in\mathcal{L}^{w,n}_{m,l}$, (2) $\omega_d\in\mathcal{B}_{[1,T]}$, and (3) $\forall \mathcal{B}'\in\mathcal{L}^{w,n}_{m,l}$ and $\omega_d\in\mathcal{B}'_{[1,T]}\implies \mathcal{B}'=\mathcal{B}$.
+- Theorem. If $\mathcal{B}$ is identifiable in the model class $\mathcal{L}^{w,n}_{m,l}$ from $\omega_d\in(\mathbb{R}^w)^T$, then $\mathcal{B}=\mathcal{B}_{mpum}(\omega_d)$.
+- **problem**: given $\omega_d$ and complexity specification $m,l_{max},n_{max}$, determine identifiability in $\mathcal{L}^{w,n}_{m,l}$ and find a algorithm to compute a representation.
+
+18. Hankel Matrix for $w=(w(1),\cdots,w(T))$.
+- $$\mathcal{H}_{t_1,t_2}(w):=\left[\begin{array}{ccc}w(1)&&w(2)&&\cdots&&w(t_2)\\w(2)&&w(3)&&\cdots&&w(t_2+1)\\\cdots&& && &&\cdots\\w(t_1)&&w(t_1+1)&&\cdots&&w(t_1+t_2-1)\end{array}\right]$$
+- $$\mathcal{H}_{t}:=\mathcal{H}_{t,\infty}(w):=\left[\begin{array}{ccc}w(1)&&w(2)&&\cdots&&w(T-t_1+1)\\w(2)&&w(3)&&\cdots&&w(T-t_1+2)\\\cdots&& && &&\cdots\\w(t_1)&&w(t_1+1)&&\cdots&&w(T)\end{array}\right]$$
+- $$\mathcal{H}_{t}=\left[\begin{array}{ccc}w_{[1,T-t]}\\ \sigma w_{[1,T-t]}\\\cdots\\ \sigma^{t-1}w_{[1,T-t]}\end{array}\right]\left[\begin{array}{ccc}w_{[1,t]}&& \sigma w_{[1,t]}&&\cdots&& \sigma^{T-t}w_{[1,t]}\end{array}\right]$$
+
+19. ***Persistency of excitation***. The time series $u_d=(u_d(1),\dots,u_d(T))$ is persistently exciting of order $L$ if $\mathcal{H}_L(u_d)$ is of full row rank.
+
+20. ***Fundamental Lemma***.
+- If the following statements hold:
+    - (1) $w_d=(u_d,y_d)$ be a trajectory of the LTI system $\mathcal{B}$ with the length of $T$, i.e. $w_d\in\mathcal{B}_{[1,T]}$.
+    - (2) $\mathcal{B}$ is controllable.
+    - (3) $u_d$ is persistently exciting of order $L+n(\mathcal{B})$
+- Then, 
