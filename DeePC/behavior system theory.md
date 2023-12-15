@@ -175,8 +175,13 @@ a_{1} & \cdots & a_{m}
     - Any linear combination $\mathcal{H}_L(w_d)g,g\in\mathbb{R}^{T-L+1}$ is a trajectory of $\mathcal{B}$
     - $$col\ span(\mathcal{H}_L(w_d))=\mathcal{B}_{[1,L]}$$
     - $$N_\mathcal{B}^{L-1}=ker(\mathcal{H}_L^T(w_d))$$
+- Note: the commonly use: if the assumption of the fundamental lemma holds, then $$ker(\mathcal{H}_L(w_d))=\mathcal{B}_{[1,L]}$$ or $$ker(\mathcal{H}_{L+1}(w_d))=\mathcal{B}_{[0,L]}$$
 
 21. Theorem. The system $\mathcal{B}\in\mathcal{L}^w$ is identifiable from $w_d=(u_d,y_d)$ if (1) $\mathcal{B}$ is controllable and $u_d$ is persistently exiciting of order $l(\mathcal{B})+1+n(\mathcal{B})$.
+
+22. Corollary. The minimal input/state/output representation $\mathcal{B}_{i/s/o}(A,B,C,D)$ and $x_d$ is the state sequence, corresponding to the trajectory $w_d=(u_d,y_d)$.
+- If $u_d$ is persistently exciting of order $n(\mathcal{B})+1$, then $$rank([x_d(1)\ x_d(2)\ \cdots\ x_d(T)])=n(\mathcal{B})$$ and $$rank(\left[\begin{array}{ccc}u_d(1) && u_d(2) && \cdots && u_d(T) \\ x_d(1) && x_d(2) &&\cdots && x_d(T)\end{array}\right])=n(\mathcal{B})+m$$
+- If $u_d$ is persistently exciting of order $n(\mathcal{B})+L$, then $$rank(\left[\begin{array}{c}X_d(1) \\  \mathcal{H}_L(u_d)\end{array}\right])=n(\mathcal{B})+Lm$$
 
 -----------------------
 ### A note on Persistency of excitation
@@ -195,3 +200,15 @@ $$w(\mathcal{B})=m(\mathcal{B})+p(\mathcal{B})$$
 - Sample length is insufficient: $$L\leq l(\mathcal{B})\Leftrightarrow \dim(\mathcal{B}_{[1,L]})=w(\mathcal{B})L\\ \Leftrightarrow \dim(N_{\mathcal{B}}^{L-1})=0$$
 
 3. For a 'random' input $u$ in $w=[u^T,y^T]^T$, meaning that the input sequence is persistently exciting of the size of its sequence size. In order to identify the system with $N_{\mathcal{B}}^{L(\mathcal{B})}$, we want to make sure that $\mathcal{H}_{L(\mathcal{B})+1}(w)$ is full row rank. Therefore, we need $u$ is persistently exciting of order $L(\mathcal{B})+1+n(\mathcal{B})$. Therefore, $T\geq (L(\mathcal{B})+n(\mathcal{B})+1)m(\mathcal{B})+L(\mathcal{B})+n(\mathcal{B})$.
+
+
+----------------
+### DeePC: In the Shallows of the DeePC
+1. Data collection
+- controllable LTI system $\mathcal{B}\in\mathcal{L}^{m+p}$.
+- $T\geq (m+1)(T_{ini}+N+n(\mathcal{B}))-1$.
+- Collect $u^d=col(u^d(1),\cdots,u^d(T))\in\mathbb{R}^{Tm}$, and $y^d=col(y^d(1),\cdots,y^d(T))\in\mathbb{R}^{Tp}$
+- $u^d$ is persistently exciting of order $T_{ini+N+n(\mathcal{B})}$.
+- Partition the data: $$\left(\begin{array}{c}U_p\\ U_f\end{array}\right):=\mathcal{H}_{T_{ini}+N}(u^d)$$ $$\left(\begin{array}{c}Y_p\\ Y_f\end{array}\right):=\mathcal{H}_{T_{ini}+N}(y^d)$$
+
+2. State estimation and trajectory prediction.
