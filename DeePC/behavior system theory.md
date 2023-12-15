@@ -212,3 +212,19 @@ $$w(\mathcal{B})=m(\mathcal{B})+p(\mathcal{B})$$
 - Partition the data: $$\left(\begin{array}{c}U_p\\ U_f\end{array}\right):=\mathcal{H}_{T_{ini}+N}(u^d)$$ $$\left(\begin{array}{c}Y_p\\ Y_f\end{array}\right):=\mathcal{H}_{T_{ini}+N}(y^d)$$
 
 2. State estimation and trajectory prediction.
+- Construct $U_p,Y_p,U_f,Y_f$ from precollected data. And then for any trajectory $(u_{ini},u,y_{ini},y)$ with the length of $T_{ini}+N$, predict the output $y$: $$\left(\begin{array}{c}U_p \\ Y_p\\ U_f \\ Y_f\end{array}\right)g=\left(\begin{array}{c}u_{ini} \\ y_{ini} \\ u \\ y\end{array}\right)$$
+- Solve the $g$ in the first three block equations. And then $y=Y_fg$.
+
+3. DeePC algorithm.
+- Problem formulation for predicting $N$ future trajectory based on $T_{ini}$ past trajectory. 
+$$\texttt{minimize}_{g,u,y}\ \sum^{N-1}_{k=0}(||y_k-r_k||_Q^2+||u_k||_R^2)\\
+\texttt{subject to} \left(\begin{array}{c}U_p \\ Y_p\\ U_f \\ Y_f\end{array}\right)g=\left(\begin{array}{c}u_{ini} \\ y_{ini} \\ u \\ y\end{array}\right),\\
+u_k\in\mathcal{U},\\
+y_k\in\mathcal{Y}.$$
+- Time horizon $N\in\mathbb{Z}_+$; reference output $r$; past input/output trajectory $col(u_{ini},y_{ini})$; input constraint set $\mathcal{U}$; output constraint set $\mathcal{Y}$; Cost matrix $Q,R$. 
+- Algorithm. 
+    - Solve the problem for $g^*$.
+    - Compute the optimal input $u^*=U_fg^*$.
+    - Apply the input for some $s$: $(u(t),\cdots,u(t+s))=(u^*(0), \cdots, u^*(s))$.
+    - Set $t$ to $t+s$ and update $u_{ini},y_{ini}$.
+    - Repeat (1) - (4).
