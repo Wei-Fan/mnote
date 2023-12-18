@@ -293,7 +293,7 @@ $$\begin{cases}x(k+1)=A_dx(k)+B_du(k)+H_d\epsilon(k)\\ y(k)=C_dx(k)\end{cases}$$
     - $u^d\in\mathbb{R}^{mT}$
     - $\epsilon^d\in\mathbb{R}^{T}$
     - $\hat{u}^d=col(\epsilon^d,u^d)\in\mathbb{R}^{(m+1)T}$
-    - $y^d\in\mathbb{R}^{(n+m)T}$
+    - $y^d\in\mathbb{R}^{(2n+m)T}$
     - $\left[\begin{array}{c}U_p\\ U_f\end{array}\right]:=\mathcal{H}_{T_{ini}+N}(u^d)$
     - $\left[\begin{array}{c}E_p\\ E_f\end{array}\right]:=\mathcal{H}_{T_{ini}+N}(\epsilon^d)$
     - $\left[\begin{array}{c}Y_p\\ Y_f\end{array}\right]:=\mathcal{H}_{T_{ini}+N}(y^d)$
@@ -306,3 +306,8 @@ $$\begin{cases}x(k+1)=A_dx(k)+B_du(k)+H_d\epsilon(k)\\ y(k)=C_dx(k)\end{cases}$$
     - The trajectory satisfy:$$\left[\begin{array}{c}U_p \\ E_p \\ Y_p\\ U_f \\ E_f \\ Y_f\end{array}\right]g=\left[\begin{array}{c}u_{ini} \\ \epsilon_{ini} \\ y_{ini} \\ u \\ \epsilon \\ y\end{array}\right]$$
     - where $g\in\mathbb{R}^{T-T_{ini}-N+1}$
     - note: if $T_{ini}\geq 2n$, then $y$ is unique for any $u _{ini},\epsilon_{ini}, y_{ini},u, \epsilon$.
+
+
+----------------------
+### Distributed data-driven predicitive control for cooperatively smoothing mixed traffic flow
+1. 
