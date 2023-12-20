@@ -163,7 +163,7 @@ a_{1} & \cdots & a_{m}
 - $$\mathcal{H}_{t}=\left[\begin{array}{ccc}w_{[1,T-t]}\\ \sigma w_{[1,T-t]}\\\cdots\\ \sigma^{t-1}w_{[1,T-t]}\end{array}\right]\left[\begin{array}{ccc}w_{[1,t]}&& \sigma w_{[1,t]}&&\cdots&& \sigma^{T-t}w_{[1,t]}\end{array}\right]$$
 
 19. ***Persistency of excitation***. The time series $u_d=(u_d(1),\dots,u_d(T))$ is persistently exciting of order $L$ if $\mathcal{H}_L(u_d)$ is of full row rank ($rank(\mathcal{H}_L(u_d))=L$).
-- $\mathcal{H}_L(u_d)\in\mathbb{R}^{L\times (T-L+1)}$
+- $\mathcal{H}_L(u_d)\in(\mathbb{R}^w)^{L\times (T-L+1)}$
 
 20. ***Fundamental Lemma***.
 - If the following statements hold:
@@ -208,7 +208,8 @@ $$w(\mathcal{B})=m(\mathcal{B})+p(\mathcal{B})$$
 - controllable LTI system $\mathcal{B}\in\mathcal{L}^{m+p}$.
 - $T\geq (m+1)(T_{ini}+N+n(\mathcal{B}))-1$.
 - Collect $u^d=col(u^d(1),\cdots,u^d(T))\in\mathbb{R}^{Tm}$, and $y^d=col(y^d(1),\cdots,y^d(T))\in\mathbb{R}^{Tp}$
-- $u^d$ is persistently exciting of order $T_{ini+N+n(\mathcal{B})}$.
+- $u^d$ is persistently exciting of order $T_{ini
+}+N+n(\mathcal{B})$.
 - Partition the data: $$\left(\begin{array}{c}U_p\\ U_f\end{array}\right):=\mathcal{H}_{T_{ini}+N}(u^d)$$ $$\left(\begin{array}{c}Y_p\\ Y_f\end{array}\right):=\mathcal{H}_{T_{ini}+N}(y^d)$$
 
 2. State estimation and trajectory prediction.
