@@ -159,8 +159,8 @@ a_{1} & \cdots & a_{m}
 
 18. Hankel Matrix for $w=(w(1),\cdots,w(T))$.
 - $$\mathcal{H}_{t_1,t_2}(w):=\left[\begin{array}{ccc}w(1)&&w(2)&&\cdots&&w(t_2)\\w(2)&&w(3)&&\cdots&&w(t_2+1)\\\cdots&& && &&\cdots\\w(t_1)&&w(t_1+1)&&\cdots&&w(t_1+t_2-1)\end{array}\right]$$
-- $$\mathcal{H}_{t}:=\mathcal{H}_{t,\infty}(w):=\left[\begin{array}{ccc}w(1)&&w(2)&&\cdots&&w(T-t_1+1)\\w(2)&&w(3)&&\cdots&&w(T-t_1+2)\\\cdots&& && &&\cdots\\w(t_1)&&w(t_1+1)&&\cdots&&w(T)\end{array}\right]$$
-- $$\mathcal{H}_{t}=\left[\begin{array}{ccc}w_{[1,T-t]}\\ \sigma w_{[1,T-t]}\\\cdots\\ \sigma^{t-1}w_{[1,T-t]}\end{array}\right]\left[\begin{array}{ccc}w_{[1,t]}&& \sigma w_{[1,t]}&&\cdots&& \sigma^{T-t}w_{[1,t]}\end{array}\right]$$
+- $$\mathcal{H}_{t}:=\mathcal{H}_{t,\infty}(w):=\left[\begin{array}{ccc}w(1)&&w(2)&&\cdots&&w(T-t+1)\\w(2)&&w(3)&&\cdots&&w(T-t+2)\\\cdots&& && &&\cdots\\w(t)&&w(t+1)&&\cdots&&w(T)\end{array}\right]$$
+- $$\mathcal{H}_{t}=\left[\begin{array}{ccc}w_{[1,T-t]}\\ \sigma w_{[1,T-t]}\\\cdots\\ \sigma^{t-1}w_{[1,T-t]}\end{array}\right]=\left[\begin{array}{ccc}w_{[1,t]}&& \sigma w_{[1,t]}&&\cdots&& \sigma^{T-t}w_{[1,t]}\end{array}\right]$$
 
 19. ***Persistency of excitation***. The time series $u_d=(u_d(1),\dots,u_d(T))$ is persistently exciting of order $L$ if $\mathcal{H}_L(u_d)$ is of full row rank ($rank(\mathcal{H}_L(u_d))=L$).
 - $\mathcal{H}_L(u_d)\in(\mathbb{R}^w)^{L\times (T-L+1)}$
