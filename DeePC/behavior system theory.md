@@ -311,4 +311,75 @@ $$\begin{cases}x(k+1)=A_dx(k)+B_du(k)+H_d\epsilon(k)\\ y(k)=C_dx(k)\end{cases}$$
 
 ----------------------
 ### Distributed data-driven predicitive control for cooperatively smoothing mixed traffic flow
-1. 
+
+
+----------------------
+### The Singular Value Decomposition (SVD)
+1. Eigenvalues and Eigen vectors
+    - The basic equation: $$Ax=\lambda x$$
+    - $\lambda$: the eigenvalue.
+    - $x$: the eigen vector.
+    - note: eigen vectors is the heart of $A$ and the eigenvalues determine how the heart changes.
+    - note: Most vectors change direction when multiplied by $A$, and only the eigen vector remain the same direction.
+2. Compute the eigenvalues and eigen vectors
+    - Solve $\det(A-\lambda I)=0$ and get eigenvalues $\{\lambda_i\}$.
+    - For each eigenvalue $\lambda_i$, solve $(A-\lambda I)x=0$ and get eigen vector $x_i$.
+    - note: to determine whether a number $\lambda$ is an eigenvalue, just check $\det(A-\lambda I)$.
+    - note: If A is singular, then one of the eigenvalue is zero. 'singular' means zero determinant.
+3. Properties. Let $A$ be a square matrix and $\{\lambda_i\}_n$ and $\{x_i\}_n$ are its eigenvalues and eigen vectors.
+    - $\Pi_{i=1}^n\lambda_i=\det A$
+    - $\sum_{i=1}^n\lambda_i=trace(A)=a_{11}+a_{22}+\cdots+a_{nn}$
+    - A symmetric matrix ($S^\intercal = S$) can be compared to a real number.
+    - A skew-symmetric matrix ($A^\intercal = −A$) can be compared to an imaginary number.
+    - An orthogonal matrix ($Q^\intercal Q = I$) corresponds to a complex number with $|\lambda| = 1$.
+    - $A$ and $B$ share the same $n$ *independent* eigen vectors $\iff$ $AB=BA$
+
+4. SVD decomposition
+    - $A_{m\times n}$ and $rank(A)=r$.
+        - $u_1,\cdots,u_r$: an orthonomral basis for the column space
+        - $u_{r+1},\cdots,u_m$: an orthonomral basis for the left nullspace $Null(A^\intercal)$. ($A^\intercal u=0$)
+        - $v_1,\cdots,v_r$: an orthonomral basis for the row space
+        - $v_{r+1},\cdots,v_n$: an orthonomral basis for the nullspace $Null(A)$. ($Av=0$)
+        - $A$ can be diagonlized by these basis: $Av_1=\sigma_1u_1,\cdots,Av_r=\sigma_ru_r$. $\{\sigma_i\}_r$ are singular values.
+        - Matrix form: $$A\left[v_1,v_2,\cdots,v_r\right]=\left[u_1,u_2,\cdots,u_r\right]\left[\begin{matrix}\sigma_1& & \\ & \cdots &\\ & & \sigma_r\end{matrix}\right]$$
+        $$\iff AV_r=U_r\Sigma_r$$
+        - $V_r,U_r$ are orthogonal because $v_i, u_i$ are orthonormal.
+        - Extend the matrix form: $$A\left[v_1,v_2,\cdots,v_r,\cdots,v_n\right]=\left[u_1,u_2,\cdots,u_r,\cdots,u_n\right]\left[\begin{matrix}\sigma_1& & \\ & \cdots &\\ & & \sigma_r\\  & 0 & \end{matrix}\right]$$
+        $$\iff AV=U\Sigma$$
+        - $V,U$ are orthogonal because $v_i, u_i$ from the nullspaces are orthogonal to previous $v,u$.
+        - SVD: $$A=U\Sigma V^\intercal=u_1\sigma_1v_1^\intercal+ \cdots + u_r\sigma_r v_r^\intercal$$
+        - note: $\sigma_i^2$ is the eigenvalue of $A^\intercal A$ and $AA^\intercal$.
+
+5. Moore-Penrose pseudoinverse
+    - $A=U\Sigma V^\intercal\implies A^+=V\Sigma^+U^\intercal$, where $\Sigma^+$ is the diagonal matrix with inverted singular values, and zeros in place of the original zeros.
+    - Example. Let's take a $2 \times 3$ matrix $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$.
+        1. **Singular Value Decomposition (SVD)**:
+            First, we decompose $A$ using SVD, which gives $A = U \Sigma V^T$, where $U$ and $V$ are orthogonal matrices, and $\Sigma$ is a diagonal matrix of singular values.
+
+            For our matrix $A$, without going into the computational details, let's say the SVD gives us:
+
+            $U = \begin{pmatrix} u_{11} & u_{12} \\ u_{21} & u_{22} \end{pmatrix}, \quad \Sigma = \begin{pmatrix} \sigma_{1} & 0 & 0 \\ 0 & \sigma_{2} & 0 \end{pmatrix}, \quad V = \begin{pmatrix} v_{11} & v_{12} & v_{13} \\ v_{21} & v_{22} & v_{23} \\ v_{31} & v_{32} & v_{33} \end{pmatrix}$
+
+        2. **Invert the Non-zero Singular Values**:
+            In $\Sigma$, replace each non-zero singular value $\sigma_i$ with its reciprocal $1/\sigma_i$ to get $\Sigma^+$.
+
+            $\Sigma^+ = \begin{pmatrix} 1/\sigma_{1} & 0 & 0 \\ 0 & 1/\sigma_{2} & 0 \end{pmatrix}$
+
+        3. **Transpose of $U$ and $V$**:
+            $U^T = \begin{pmatrix} u_{11} & u_{21} \\ u_{12} & u_{22} \end{pmatrix}, \quad V^T = \begin{pmatrix} v_{11} & v_{21} & v_{31} \\ v_{12} & v_{22} & v_{32} \\ v_{13} & v_{23} & v_{33} \end{pmatrix}$
+
+        4. **Recombine to Get $A^+$**:
+            $A^+ = V \Sigma^+ U^T$
+
+            Given the values of $U, \Sigma, V$ from SVD, you would compute:
+
+            $A^+ = \begin{pmatrix} v_{11} & v_{21} & v_{31} \\ v_{12} & v_{22} & v_{32} \\ v_{13} & v_{23} & v_{33} \end{pmatrix} \begin{pmatrix} 1/\sigma_{1} & 0 & 0 \\ 0 & 1/\sigma_{2} & 0 \end{pmatrix} \begin{pmatrix} u_{11} & u_{21} \\ u_{12} & u_{22} \end{pmatrix}$
+    - Properties of $A^+$
+        - $AA^+A=A,A^+AA^+=A^+$
+        - $A^+=(A^TA)^+A^T=A^T(AA^T)^+$
+        - $(A^T)^+=(A^+)^T$
+        - $(A^+)^+=A$
+        - $(A^TA)^+=A^+(A^T)^+$
+        - $(AA^T)^+=(A^T)^+A^+$
+        - $rank(A^+)=rank(A^T)=rank(A^+A)=rank(A^TA)$
+        - If $A$ is normal ($AA^T=A^TA$), then $A^kA^+=A^+A^k,\forall k>0$.
