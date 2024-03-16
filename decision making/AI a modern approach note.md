@@ -18,3 +18,27 @@
 2. **Learn decision tree**: the hypothesis is the decision tree. The Learn-Decision-Tree algorithm will learn the decisino tree from data.
     - The core of the Learn-Decision-Tree algorithm is to give a score('importance') for each attribute. The decision tree will start from the highest 'importance' attribute to the lowest.
 3. **Learning curve**: Increase the training set size from 1 to 100 and plot the correctness rate.
+4. **Information Entropy**: if there is no uncertainty, then the entropy is zero.
+    $$H(V)=-\sum_k P(v_k)\log_2 P(v_k)$$
+    where $V$ is the variable, $v_k$ is the possible value of this variable, and $P(v_k)$ is the probability of this value.
+5. **Entropy of a Boolean variable**: if $V$ is a boolean variable and $q$ is the probability of it being true, then
+    $$B(q)=-(q\log_2q+(1-q)\log_2(1-q))$$
+6. **Use Information Entropy to give importance**:
+    1. find the information entropy provided by attribute A:
+        1. A has $d$ different values
+        2. Divide the training set by $d$ values: $E_1,\dots, E_d$
+        3. For each subset, calculate the entropy: $B(\frac{p_k}{p_k+n_k})$
+        4. Sum up all entropy: $\sum^d_{k=1}\frac{p_k+n_k}{p+n}B(\frac{p_k}{p_k+n_k})$
+    2. find the importance of attribute A:
+        1. Calculate the overall entropy: $B(\frac{p}{p+n})$
+        2. The gain of this attribute is given as $B(\frac{p}{p+n}) - \sum^d_{k=1}\frac{p_k+n_k}{p+n}B(\frac{p_k}{p_k+n_k})$
+7. **Pruning**: If an attribute is irrelevant, then all its subset's entropies are roughly the same as the whole set. The process of elimating irrelevant attributes is called pruning.
+    - *$X^2$ pruning*: We can measure the deviation of attribute A by
+        $$\Delta(A)=\sum^d_{k=1}[\frac{(p_k-\bar{p_k})^2}{\bar{p_k}}+\frac{(n_k-\bar{n_k})^2}{\bar{n_k}}]$$
+        where $\bar{p_k}$ and $\bar{n_k}$ are the expected number of positive and negative examples in the subset assuming true irrelevant.
+    - The smaller $\Delta(A)$ is, the more irrelevant A is.
+8. Others:
+    - *Continuous-valued input attribute*: find a split point to discrete the input
+    - *Continuous-valued output attribute*: use regression tree instead of decision tree.
+
+### Model Selection and Optimization
