@@ -42,3 +42,35 @@
     - *Continuous-valued output attribute*: use regression tree instead of decision tree.
 
 ### Model Selection and Optimization
+1. **Model Selection**: the task to find a good hypothesis space.
+2. **Optimization**: the task to find the best hypothesis within that space.
+3. **data sets**:
+    - *training set*: to train candidate models
+    - *validation set*: to evaluate the candidate models and choose the best one
+    - *test set*: to evalue the best model
+4. **hyperparameter**: A model in the model class represents a hypothesis space. The hyperparameters are parameters of the model class.
+    - Model class: polynomial, $\{x^a\}$
+    - A model in model class: 2-degree polynomial, $\{x^2\}$
+    - Hyperparameter: degree value
+5. **Loss function**:
+    $$L(x,y,\hat{y})=U(x,y)-U(x,\hat{y})$$
+    where $\hat{y}=h(x)$ is the predicted result and $y=f(x)$ is the correct result. $U(x,y)$ is the utility of getting result $y$ given an input $x$.
+    - If the loss function is independent of $x$, then it can be written as $L(y,\hat{y})$
+    - Commonly used loss function:
+        - $L_1(y,\hat{y})=|y-\hat{y}|$
+        - $L_2(y,\hat{y})=||y-\hat{y}||^2$
+        - $L_{0/1}(y,\hat{y})=\begin{cases}0, && y=\hat{y}\\ 1, && y\neq\hat{y}\end{cases}$
+6. **Generalization loss**: Define a prior probability distribution $P(X,Y)$ over examples. Then the generalization loss is given by
+    $$GenLoss_L(h)=\sum_{(x,y)}L(y,h(x))P(x,y)$$
+7. **Empirical loss**: If the prior distribution is unknown. Then the empirical loss is used to find the best hypothesis:
+    $$EmpLoss_{L,E}=\sum_{(x,y)}L(y,h(x))\frac{1}{N}$$
+    where $N$ is the size of example set $E$
+8. **Regularization**: the process of penalizing complex hypotheses is called regularization. The choice of regularization function depends on the hypothesis space. Therefore, the total cost is the combination of empirical loss and complexity of the hypothesis (measured by regularization function).
+9. **Hyperparameter tuning**: Tuning hyperparameter is important for the model selection.
+    - *hand-tuning*
+    - *grid search*: for multiple hyperparameters
+    - *random search*: if the combinations of possible hyperparameter values are too many
+    - *Bayesian optimization*: treat the task of tuning hyperparameters as a mahcine learning problem in itself. The input is the hyperparameter vector and the output is the total loss on the validation set.
+    - *polulation-based training (PBT)*
+
+### The Theory of Learning
