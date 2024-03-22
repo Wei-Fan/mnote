@@ -74,4 +74,7 @@
     - *polulation-based training (PBT)*
 
 ### The Theory of Learning
-1. **Probably approximately correct (PAC)**:
+1. **Probably approximately correct (PAC)**: a hypothesis is probably approximatedly correct if it is consistent with a sufficiently large set of training examples (always correct among a sufficiently large training set).
+    - $error(h)=GenLoss_{L_{0/1}}(h)=\sum_{(x,y)}L_{0/1}(y,h(x))P(x,y)$
+    - a hypothesis $h$ is approximately correct if $error(h)\leq\epsilon$.
+    - $\cal{H}_{bad}:=\{h|error(h)>\epsilon\}$
