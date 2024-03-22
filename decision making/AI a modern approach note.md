@@ -78,3 +78,20 @@
     - $error(h)=GenLoss_{L_{0/1}}(h)=\sum_{(x,y)}L_{0/1}(y,h(x))P(x,y)$
     - a hypothesis $h$ is approximately correct if $error(h)\leq\epsilon$.
     - $\cal{H}_{bad}:=\{h|error(h)>\epsilon\}$
+    - The number of examples needed for PAC-learning a $k$-DL(n) function is $N\leq\frac{1}{\epsilon}(\ln\frac{1}{\delta}+O(n^k\log_2(n^k)))$
+        - n is the number of attributes, and k is the number of decision list.
+
+### Linear Regression and Classification
+1. **Univariaate linear regression** (a straight line)
+    - $y=w_1x+w_0$
+    - Input $x$, output $y$, $w_1, w_2$ are coefficients to be learned.
+    - hypothesis: $h_w(x) = w_1x+w_0$
+    - $Loss(h_w)=\sum_{j=1}^N L_2(y_j,h_w(x_j))=\sum_{j=1}^N (y_j-(w_1x_j+w_0))^2$
+    - To find the minimal loss, we can set its partial derivatives with respect to $w_0,w_1$ are zero.
+2. **Gradient descent**: gradient descent is the method to find the minimal loss without solving zeroes of the partial derivatives.
+    - update: $w_0\leftarrow w_0+\alpha\sum_j(y_j-h_w(x_j))$, $w_1\leftarrow w_1+\alpha\sum_j(y_j-h_w(x_j))x_j$
+    - *batch gradient descent*: update for the entire dataset
+    - *stochastic gradient descent*: randomly selects a small number of training examples at each step.
+    - *epoch*: a step that covers all the training examples.
+3. **Multivatiable linear regression**: For example, $y=w_0+\sum_{j=1}^nw_ix{j,i}$
+    - hypothesis: $h_w(x_j)=w_0+\sum_{j=1}^nw_ix{j,i}$
