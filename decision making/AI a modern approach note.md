@@ -82,7 +82,7 @@
         - n is the number of attributes, and k is the number of decision list.
 
 ### Linear Regression and Classification
-1. **Univariaate linear regression** (a straight line)
+1. **Univariate linear regression** (a straight line)
     - $y=w_1x+w_0$
     - Input $x$, output $y$, $w_1, w_2$ are coefficients to be learned.
     - hypothesis: $h_w(x) = w_1x+w_0$
@@ -93,5 +93,44 @@
     - *batch gradient descent*: update for the entire dataset
     - *stochastic gradient descent*: randomly selects a small number of training examples at each step.
     - *epoch*: a step that covers all the training examples.
-3. **Multivatiable linear regression**: For example, $y=w_0+\sum_{j=1}^nw_ix{j,i}$
-    - hypothesis: $h_w(x_j)=w_0+\sum_{j=1}^nw_ix{j,i}$
+3. **Multivariable linear regression**: For example, $y=w_0+\sum_{j=1}^nw_ix_{j,i}$
+    - hypothesis: $h_w(x_j)=w_0+\sum_{j=1}^nw_ix_{j,i}$
+    - define $x_{j,0}=1$, then $h_w(x_j)=w^\intercal x_j$
+    - The best vector of weights minimizes squared loss: $Loss(h_w)=\sum_{j=1}^N L_2(y_j,w^\intercal x_j)$
+    - write in matrix: $X:=\left[\begin{matrix}x_{1,1} && \cdots  && x_{1,n} \\ \cdots && && \cdots \\ x_{N,1} && \cdots  && x_{N,n} \end{matrix}\right]$, where $n$ is the dimension of weight and $N$ is the number of example.
+    - $Loss(h_w)=||Xw-y||^2$
+    - use gradient descent to reach the minimum: $w_i\leftarrow w_i+\alpha\sum_j(y_j-h_w(x_j))\times x_{j,i}$
+    - or, set the gradient to zero and find the minimum-loss weight:
+        $$\nabla_wL(w)=2X^\intercal (Xw-y)=0\implies w^*=(X^\intercal X)^{-1}X^\intercal y$$
+        where $(X^\intercal X)^{-1}X^\intercal$ is the pseudoinverse of data matrix.
+4. **Avoid overfitting in multivariable linear regression**: it is possible that some dimension is irrelevant and thus causes overfitting.
+    - use *regularization*: $Cost(h)=Loss(h)+\lambda Complexity(h)$
+    - $Complexity(h_w)=L_q(w)=\sum_i|w_i|^q$
+    - decision of $q$:
+        - *L1 regularization*: easier to find irrelevant dimension (produce a **sparse model**, because many weights are set to zero); more suitable for the model that axes have different meanings (not interchangeable).
+        - *L2 regularization*: has the same result after rotate axes for $X$ data; more suitable for the model that the choice of axes is arbitrary.
+5. **Logistic regression**: the boundary of linear classification gives a completely confident prediction of 1 or 0 near boundary. We can replace the hypothesis function to make it smooth near bondary:
+    $$h_w(x)=Logistic(w\cdot x)=\frac{1}{1+e^{-w\cdot x}}$$
+
+### Nonparametric Models
+1. **parametric models vs nonparametric models**: if we restrict the hypothesis to be a type of functions that are decided by a fixed-size set of parameters, then the hypothesis is called a parametric model. The idea of a nonparametric model is to let the data speak for themself, but it could not generalized well.
+2. **Nearest-neighbor models**: if $x_q$ is not in the data table, then find $k$ examples that are nearest to $x_q$, noted as $NN(k,x_q)$.
+    - for classification: $k$ is usually an odd number. The predict output are the most common output in $NN(k,x_q)$.
+    - for regression: The predict output are the mean or median of the $k$ neighbors or the result of the linear regression problem on neighbors. note that, the higher $k$, the possibility of underfitting is higher.
+    - The distance metric is the essential part of the Nearest-neighbor model:
+        - **Minkowski distance or $L^p$ norm**: $L^p(x_t,x_s)=(\sum_i|x_{t,i}-x_{s,i}|^p)^{\frac{1}{p}}$
+            - $p=1$: Manhattan distance. used if the dimensions are dissimilar, such as age, weight, and gender.
+            - $p=2$: Euclidean distance. used if the dimensions are similar, such as width, height and depth.
+        - **Mahalanobis distance**: normalize each dimension by mean and standard deviation (replace $x_{j,i}$ by $\frac{x_{j,i}-\mu_i}{\sigma_i}$).
+    - This method works well in low-dimensional spaces. Because the concept of neighbor is not clear in high-dimensional spaces.
+3. **Support vector machine (SVM)**
+    - basic idea: maximize the margin between two data classes.
+    - *support vectors*: The hpyothesis is subset of training examples, called *support vectors* or *maximum margin separator*, given by $\{x:w\cdot x + b =0\}$.
+    - The maximum margin separator can be found by solving a quadratic programming optimization problem.
+    - If the data are not linearly separable, we can map the input vector to a new vector:$z_1=x_1^2,z_2=x_2^2,z_3=\sqrt{2}x_1x_2$. This phenomenon: *if data are mapped into a space of sufficiently high dimension, then they will almost always be linearly separable.*
+    - *kernel function*: The expression $(x_j\cdot x_k)^2=:K(x_j,x_k)$ is called a kernel function. The kernel function can be chosen based on what type of higher-dimensional feature space we want.
+        - For example, **polynomial kernel**: $K(x_j,x_k)=(1+x_j\cdot x_k)^d$
+        - **Gaussian kernel**: $K(x_j,x_k)=e^{-\gamma|x_j - x_k|^2}$
+
+### Ensemble Learning
+1. 
