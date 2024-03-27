@@ -133,4 +133,10 @@
         - **Gaussian kernel**: $K(x_j,x_k)=e^{-\gamma|x_j - x_k|^2}$
 
 ### Ensemble Learning
-1. 
+1. **Ensemble model**: instead of choosing a type of hyothesis to make predictions, the idea of ensumble learning is to select a collection of hypotheses and combine their predictive outputs by averaging, voting, or by another level of machine learning.
+2. **Bagging**: generate $K$ different trainint sets and get $K$ hypotheses. For classification problems, the ouput is given by the majority vote. For regression problems, the final output is the average: $h(x)=\frac{1}{K}\sum^K_{i=1}h_i(x)$.
+3. **Stacking**: Whereas bagging combines multiple base models of the same model class trained on different data, the technique of stacked generalization (or stacking for short) combines multiple base models from different model classes trained on the same data.
+    - there are weighted upon each models and they can be learned (or say, train the ensemble model by learning the weights).
+4. **Boosting**: this method will train $K$ hypotheses based on a weighted training set. The weighted training set is updated after one hypothesis is trained and the weights on wrong examples are increased. After $K$ hypotheses generated, the final ensemble will sum up all prediction output with a weigtht: $h(x)=\sum^K_{i=1}z_ih_i(x)$
+5. note: Ockham's razor tells us not to make hypotheses more complex than necessary, but the graph tells us that the predictions improve as the ensemble hypothesis gets more complex!
+6. **Gradient boosting**:
