@@ -139,4 +139,28 @@
     - there are weighted upon each models and they can be learned (or say, train the ensemble model by learning the weights).
 4. **Boosting**: this method will train $K$ hypotheses based on a weighted training set. The weighted training set is updated after one hypothesis is trained and the weights on wrong examples are increased. After $K$ hypotheses generated, the final ensemble will sum up all prediction output with a weigtht: $h(x)=\sum^K_{i=1}z_ih_i(x)$
 5. note: Ockham's razor tells us not to make hypotheses more complex than necessary, but the graph tells us that the predictions improve as the ensemble hypothesis gets more complex!
-6. **Gradient boosting**:
+6. **Gradient boosting**: instead of updating the weight of training examples, the gradient boosting update the parameters of the next hypothesis in the direction of reducing the loss.
+7. **Online learning**: if the data are independent and identically distributed (i.i.d), we can generate a hypothesis one after another like what the boosting does. However, if the data are not i.i.d, we can only update $K$ hypotheses at the same time. One of the online learning method is called the **randomized weighted majority algorithm**:
+    - for each problem to be solved do
+        1. Receive the predictions $\{\hat{y}_1, \dots , \hat{y}_K\}$ from the experts.
+        2. Randomly choose an expert $k^∗$ in proportion to its weight: $P(k) = w_k$ .
+        3. yield $\hat{y}_{k^∗}$ as the answer to this problem.
+        4. Receive the correct answer $y$.
+        5. For each expert $k$ such that $\hat{y}_k \neq y$, update $w_k \leftarrow \beta w_k$
+        6. Normalize the weights so that $\sum_k w_k = 1$.
+
+### Developing Machine Learning System
+1. Data collection, assessment, and management
+    1. make sure the data capture enough features to learn a model. If not, consider collecting more data.
+    2. Draw a learning curve to see if more data will help, or if learning has already plateaued.
+    3. **data augmentation**: when data are limited, make more data based on existing data. For example, rotate, translate, crop, or scale each image to create more image data.
+    4. Be careful of **unbalanced classes**. If one type of data is too many, one can *undersample* the majority class, or *oversample* the minority class. (Boosting could help)
+    5. Be carefule of **outliers**. An outlier is a data point that is far from other points. To reduce the effect of outliers, for instance, we can transforming the data using logarithm.
+    6. **feature engineering**: modify the data to make their features more obvious to the hypothesis model.
+    7. **exploratory data analysis (EDA)**: use technique to visualize the data, such as *t-distributed stochastic neighbor embedding (t-SNE)*.
+2. Model selection and training
+3. Trust, interpretability, and explainability
+4. Operation, monitoring, and maintenance
+
+## Chpt 20. Learning Probabilistic Models
+### Statistical Learning
