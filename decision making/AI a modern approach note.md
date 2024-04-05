@@ -164,3 +164,13 @@
 
 ## Chpt 20. Learning Probabilistic Models
 ### Statistical Learning
+0. Concepts:
+    - data: data are evidence - instantiations of some random variables describing the domiain.
+    - hypotheses: probabilistic theories (or distribution) to describe the random variables.
+1. **Bayesian learning**: calculates the probability of each hypothesis, given the data, and makes predictions on that basis. $$P(h_i|d)=\alpha P(d|h_i)P(h_i)$$
+    - $P(h_i)$: *hypothesis prior*. Usually the hypothesis prior is given or in assumption.
+    - $P(d|h_i)$: *likelihood*: can be obtained by calculation. The likelihood of the data under a hypothesis.
+    - To make a prediction about an unknown quantity $X$: $$P(X|d)=\sum_i P(X|h_i)P(h_i|d)$$ or $$P(X|d)=P(X|h_{MAP})$$ where $h_{MAP}$ is the hypothesis that maximizes the $P(h_i|d)$. As more data arrive, the MAP and Bayesian predictions become closer.
+    - Similiar to the fact that when the hypothesis space is too expressive, overfitting occurs, we hope to penalize complex hypotheses.
+    - When the data set is large, the prior distribution over hypotheses is less important — the evidence from the data is strong enough to swamp the prior distribution over hypotheses.
+### Learning with Complete Data
