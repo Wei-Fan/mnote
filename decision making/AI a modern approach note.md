@@ -174,3 +174,35 @@
     - Similiar to the fact that when the hypothesis space is too expressive, overfitting occurs, we hope to penalize complex hypotheses.
     - When the data set is large, the prior distribution over hypotheses is less important — the evidence from the data is strong enough to swamp the prior distribution over hypotheses.
 ### Learning with Complete Data
+1. **complete data**: Data are complete when each data point contains values for every variable in the probability model being learned.
+2. **Maximum-likelihood parameter learning (discrete model)**:
+    - If the discrete parameter is $\theta$, then the hypothesis is $h_{\theta}$.
+    - the likelihood of data set is $P(d|h_{\theta})=\prod_{j=1}^NP(d_j|h_{\theta})$
+    - *log likelihood*: $L(d|h_{\theta})=\log P(d|h_{\theta})=\sum_{j=1}^NP(d_j|h_{\theta})$
+    - Solve the optimization problem. (using log will be easier)
+3. **Naive Bayes Model**: the most common Bayesian network model in machine learning.
+    - **Naive Assumption**:  all features (or predictors) in the dataset are independent of each other, given the class label. This simplifies the computation significantly, because it means that the likelihood of observing a conjunction of features given a class label is the product of the likelihoods of observing each feature individually: $$P(x_1,x_2,\dots,x_n|y)=\prod_{i=1}^nP(x_i|y)$$
+    - $\{x_i\}$ is the attributes of hypothesis.
+    - Therefore, the class variable $C$ has likelihood: $P(C|x_1,\cdots,x_n)=\alpha P(C)\prod_iP(x_i|C)$
+4. Two types of machine learning models for classifiers:
+    - **Generative model**: models the probability distribution of each class.
+    - **Discriminative model**: directly learns the decision boundary between classes.
+5. **Maximum-likelihood parameter learning (continuous model)**:
+    - If the continuous probability models is *linear-Gaussian*. And we assume that the data are generated as follows: $$P(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+    - log likelihood: $$L=N(-\log\sqrt{2\pi})-\sum_{j=1}^N\frac{(x-\mu)^2}{2\sigma^2}$$
+    - Solve the optimization problem and find $\mu, \sigma$.
+    - If the linear-Gaussian model with one continuous parent $X$ and a continuous child $Y$, the likelihood is: $$P(y|x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y - (\theta_1x+\theta_2))^2}{2\sigma^2}}$$
+    - The parameters are $\theta_1, \theta_2, \sigma$.
+6. **Bayesian paramter learning**
+    - *Compared to maximum-likelihood parameter learning*: Unlike the maximum-likelihood parameter learning seeks the parameters that maximize the likelihood function, which measures how likely it is to observe the given data under different parameter values. The MLE method focuses solely on the observed data and does not incorporate prior beliefs or information about the parameters. Bayesian estimation involves updating prior beliefs about parameters based on the observed data, using Bayes' Theorem. This method incorporates both the likelihood of the observed data and the prior distribution of the parameters.
+        - Prior Knowledge: MLE does not use prior knowledge; Bayesian methods start with prior beliefs and update these beliefs based on data.
+        - Outcome: MLE gives a single point estimate of parameters; Bayesian gives a probability distribution reflecting uncertainty.
+        - Computational Complexity: MLE is generally simpler and faster; Bayesian methods can be computationally demanding, especially with non-conjugate priors.
+    - **beta distributions**: a popular prior distribution, $Beta(\theta;a,b)=\alpha\theta^{a-1}(1-\theta)^{b-1}$. a and b are hyperparameters.
+    - After receiving each data point, the hyperparameters update. 
+7. **Bayesian linear regression**: Bayesian linear regression is an approach to linear regression in which all the principles of Bayesian statistics are applied. It provides a probabilistic perspective on linear regression models, considering the coefficients and other model parameters as random variables rather than fixed values as in traditional (frequentist) linear regression. This approach allows for the incorporation of prior beliefs about the parameters and offers a comprehensive understanding of uncertainty in model predictions.
+8. **nonparametric models**: similar to general case, we can use methods like **k-nearest-neighbors** models or kernel functions to estimate the density of data.
+
+### Learning with Hidden Variables
+1. **hidden variables/ latent variables**: not observable in the data. Given the same data set, learning the latent variables can dramatically reduce the number of parameters required to specify a Bayesian network compared to not learning the latent variables. The **expectation-maximization (EM)** algorithm can solve this.
+2. **Unsupervised clustering**: the first example of EM.
