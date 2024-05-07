@@ -223,3 +223,5 @@
     The key factor is to find the hidden distribution of latent variables.
 
 ## Deep Learning
+### Simple Feedforward Networks
+1. Networks as complex functions
